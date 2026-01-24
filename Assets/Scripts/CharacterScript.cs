@@ -22,7 +22,8 @@ public class CharacterScript : MonoBehaviour
         {
             print(gameObject.name + " " + transform.position.y);
             print(col.gameObject.name + " " +  col.gameObject.transform.position.y);
-            angle = (gameObject.GetComponent<Rigidbody2D>().linearVelocity.x + gameObject.GetComponent<Rigidbody2D>().linearVelocity.y)/4;
+            
         }
+        angle = (gameObject.GetComponent<Rigidbody2D>().linearVelocity.x/* + gameObject.GetComponent<Rigidbody2D>().linearVelocity.y*/)/-15;
     }
 }
