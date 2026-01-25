@@ -1,0 +1,32 @@
+using UnityEngine;
+
+public class swordScript : MonoBehaviour
+{
+    public float rotSpeed;
+    public int damage;
+    Transform parent;
+    Transform ball;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        parent = transform.parent;
+        ball = parent.transform.parent;
+        parent.transform.position = new Vector2(ball.transform.position.x, ball.transform.position.y);
+        gameObject.tag = ball.tag;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        transform.parent.localEulerAngles += new Vector3(0, 0, rotSpeed);
+    }
+
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag != gameObject.tag && col.gameObject.tag != "Border")
+        {
+            rotSpeed *= -1;
+            col.GetComponent<CharacterScript>().health-=damage;
+        }
+    }
+}
