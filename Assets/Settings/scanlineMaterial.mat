@@ -37,7 +37,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _lineSize: 138.26
+    - _lineSize: 139.37
+    - _pixels: 263.2
     - _speed: 100
     m_Colors: []
   m_BuildTextureStacks: []
