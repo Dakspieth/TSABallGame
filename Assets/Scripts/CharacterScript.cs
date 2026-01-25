@@ -60,7 +60,7 @@ public class CharacterScript : MonoBehaviour
             }
             
         }
-        angle = (rb.linearVelocity.x)/-15;
+        angle = (rb.linearVelocity.x)/-7.5f;
     }
     
 }
