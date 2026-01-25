@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class swordScript : MonoBehaviour
 {
-    public float rotSpeed;
-    public int damage;
+    float rotSpeed;
+    int damage;
     Transform parent;
     Transform ball;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -13,12 +13,14 @@ public class swordScript : MonoBehaviour
         ball = parent.transform.parent;
         parent.transform.position = new Vector2(ball.transform.position.x, ball.transform.position.y);
         gameObject.tag = ball.tag;
+        damage = ball.GetComponent<CharacterScript>().swordDamage;
+        rotSpeed = ball.GetComponent<CharacterScript>().swordSpeed;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.parent.localEulerAngles += new Vector3(0, 0, rotSpeed);
+        transform.parent.localEulerAngles += new Vector3(0, 0, rotSpeed*Time.deltaTime);
     }
 
     public void OnTriggerEnter2D(Collider2D col)
