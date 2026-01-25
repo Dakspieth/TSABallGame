@@ -265,7 +265,6 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420033}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   m_Layer: 0
@@ -393,30 +392,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
-  m_ComponentVersion: 1
-  m_AssetsPPU: 24
-  m_RefResolutionX: 225
-  m_RefResolutionY: 27
-  m_CropFrame: 0
-  m_GridSnapping: 2
-  m_FilterMode: 0
-  m_UpscaleRT: 0
-  m_PixelSnapping: 0
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
 --- !u!1 &589723523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,8 +1266,8 @@ Transform:
   m_GameObject: {fileID: 1537226474}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.4861, y: -0.11, z: 0}
-  m_LocalScale: {x: 3.989683, y: 1.0278631, z: 0.41012555}
+  m_LocalPosition: {x: 1.48378, y: -0.09409, z: 0}
+  m_LocalScale: {x: 4.014176, y: 0.9960492, z: 0.41012555}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1682100633}
@@ -1898,8 +1873,8 @@ Transform:
   m_GameObject: {fileID: 2061649989}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.508, y: 5.099, z: 0}
-  m_LocalScale: {x: 3.9726946, y: 1.0278631, z: 0.41012555}
+  m_LocalPosition: {x: 1.4864, y: 5.10088, z: 0}
+  m_LocalScale: {x: 4.0158777, y: 1.0316148, z: 0.41012555}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1682100633}
