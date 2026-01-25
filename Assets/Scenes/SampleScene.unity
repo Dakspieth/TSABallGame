@@ -959,12 +959,12 @@ Transform:
   m_GameObject: {fileID: 1307118079}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.0926828, y: 2.1463416, z: 0}
-  m_LocalScale: {x: 2.4390244, y: 2.4390244, z: 2.4390244}
+  m_LocalPosition: {x: -0.858, y: 0.88000005, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1655212191}
-  m_Father: {fileID: 1932959692}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1307118084
 MonoBehaviour:
@@ -979,8 +979,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterScript
   health: 10
-  hasSword: 0
+  speed: 0
+  hasSword: 1
+  swordDamage: 2
+  swordSpeed: 360
   swordPrefab: {fileID: 4478231092573160232, guid: 93750e65a9e1ec34db093be7167a92cd, type: 3}
+  unarmed: 0
+  unarmedDamage: 1
+  unarmedSpeedOnHit: 0
 --- !u!1 &1345086583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1234,7 +1240,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9216402345219770613, guid: 238726c2dc682084eb1a6a65809362fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: affff1ebc6829f94aa6502a41bd38761, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1552,8 +1558,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterScript
   health: 10
-  hasSword: 1
+  speed: 0
+  hasSword: 0
+  swordDamage: 2
+  swordSpeed: 360
   swordPrefab: {fileID: 4478231092573160232, guid: 93750e65a9e1ec34db093be7167a92cd, type: 3}
+  unarmed: 1
+  unarmedDamage: 1
+  unarmedSpeedOnHit: 1
 --- !u!1 &1682100632
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,7 +1870,6 @@ Transform:
   - {fileID: 1345086586}
   - {fileID: 1253635832}
   - {fileID: 1295547757}
-  - {fileID: 1307118083}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2061649989
@@ -2240,6 +2251,7 @@ SceneRoots:
   - {fileID: 1372985641}
   - {fileID: 619394802}
   - {fileID: 1932959692}
+  - {fileID: 1307118083}
   - {fileID: 1658920825}
   - {fileID: 331389912}
   - {fileID: 1682100633}
