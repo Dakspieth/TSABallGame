@@ -27,8 +27,14 @@ public class swordScript : MonoBehaviour
     {
         if(col.gameObject.tag != gameObject.tag && col.gameObject.tag != "Border")
         {
+            StartCoroutine(col.GetComponent<CharacterScript>().HitStop());
+            if (col.gameObject.layer == 0)
+            {
             rotSpeed *= -1;
+            }
             col.GetComponent<CharacterScript>().health-=damage;
         }
     }
+
+    
 }
