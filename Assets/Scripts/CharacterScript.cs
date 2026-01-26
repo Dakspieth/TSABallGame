@@ -51,7 +51,7 @@ public class CharacterScript : MonoBehaviour
         
     }
 
-    void Update()
+    void LateUpdate()
     {
         transform.Find("sprite").eulerAngles += new Vector3(0, 0, angle);
         if(health <= 0)
