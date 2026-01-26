@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class unarmedScript : MonoBehaviour
 {
+    //sigmaboy
     CharacterScript cs;
     float damage;
     bool speedOnHit;

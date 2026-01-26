@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class swordScript : MonoBehaviour
 {
+    //sigmaboy
     float rotSpeed;
     int damage;
     Transform parent;

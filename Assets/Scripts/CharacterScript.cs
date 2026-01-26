@@ -3,6 +3,7 @@ using System.Collections;
 
 public class CharacterScript : MonoBehaviour
 {
+    
     public float health;
     public float speed;
 
