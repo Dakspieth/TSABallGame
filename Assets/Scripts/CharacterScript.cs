@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro;
+
 public class CharacterScript : MonoBehaviour
 {
     public float health;
@@ -11,7 +11,6 @@ public class CharacterScript : MonoBehaviour
     public bool unarmed; // does damage when ball hits ball
     public int unarmedDamage;
     public bool unarmedSpeedOnHit;
-    TextMeshProUGUI healthTxt;
 
     float angle;
     Rigidbody2D rb;
@@ -19,7 +18,6 @@ public class CharacterScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        healthTxt = GetComponentInChildren<TextMeshProUGUI>();
         rb = transform.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.right * Random.Range(-5, 5) + transform.up * Random.Range(0, 3), ForceMode2D.Impulse);
 
@@ -55,7 +53,6 @@ public class CharacterScript : MonoBehaviour
         if (unarmed && col.gameObject.tag != gameObject.tag && col.gameObject.tag != "Border") // rules for on collision if unarmed is enabled
         {
             col.gameObject.GetComponent<CharacterScript>().health -= unarmedDamage;
-            col.gameObject.GetComponentInChildren<TextMeshPro>().text = "" + col.gameObject.GetComponent<CharacterScript>().health;
             if (unarmedSpeedOnHit)
             {
                 speed += Mathf.Pow(10,-(speed+0.7f));
@@ -65,5 +62,5 @@ public class CharacterScript : MonoBehaviour
         }
         angle = (rb.linearVelocity.x)/-7.5f;
     }
-
+    
 }

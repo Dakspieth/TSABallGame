@@ -38,7 +38,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _lineSize: 139.37
-    - _pixels: 220
+    - _pixels: 263.2
     - _speed: 100
     m_Colors: []
   m_BuildTextureStacks: []
