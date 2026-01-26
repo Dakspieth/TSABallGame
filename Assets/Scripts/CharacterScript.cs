@@ -29,9 +29,12 @@ public class CharacterScript : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rb;
 
+    Camera cam;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         rb = transform.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.right * Random.Range(-5, 5) + transform.up * Random.Range(0, 3), ForceMode2D.Impulse);
 
@@ -81,7 +84,16 @@ public class CharacterScript : MonoBehaviour
     public IEnumerator HitStop()
     {
         Time.timeScale = 0;
-        yield return new WaitForSecondsRealtime(0.2f);
+        yield return new WaitForSecondsRealtime(0.1f);
+        cam.orthographicSize = 2.8f;
+        for(int i = 0; i < 10; i++)
+        {
+            yield return new WaitForSecondsRealtime(0.01f);
+            Time.timeScale = Mathf.Lerp(Time.timeScale, 1, 0.02f);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 3, 0.02f);
+            print(Time.timeScale);
+        }
         Time.timeScale = 1;
+        cam.orthographicSize = 3;
     }
 }

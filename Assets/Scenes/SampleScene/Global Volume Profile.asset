@@ -42,52 +42,6 @@ MonoBehaviour:
   contribution:
     m_OverrideState: 1
     m_Value: 0
---- !u!114 &-7458118533203997880
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c01700fd266d6914ababb731e09af2eb, type: 3}
-  m_Name: DepthOfField
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DepthOfField
-  active: 1
-  mode:
-    m_OverrideState: 1
-    m_Value: 0
-  gaussianStart:
-    m_OverrideState: 1
-    m_Value: 10
-  gaussianEnd:
-    m_OverrideState: 1
-    m_Value: 30
-  gaussianMaxRadius:
-    m_OverrideState: 1
-    m_Value: 1
-  highQualitySampling:
-    m_OverrideState: 1
-    m_Value: 0
-  focusDistance:
-    m_OverrideState: 1
-    m_Value: 10
-  aperture:
-    m_OverrideState: 1
-    m_Value: 5.6
-  focalLength:
-    m_OverrideState: 1
-    m_Value: 50
-  bladeCount:
-    m_OverrideState: 1
-    m_Value: 5
-  bladeCurvature:
-    m_OverrideState: 1
-    m_Value: 1
-  bladeRotation:
-    m_OverrideState: 1
-    m_Value: 0
 --- !u!114 &-7411732995720255550
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -175,7 +129,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1.78
   tintColor:
     m_OverrideState: 1
     m_Value: {r: 1, g: 1, b: 1, a: 1}
@@ -208,7 +162,7 @@ MonoBehaviour:
     m_Value: 1.25
   scale:
     m_OverrideState: 1
-    m_Value: 1.5
+    m_Value: 4
   streaksIntensity:
     m_OverrideState: 1
     m_Value: 0
@@ -242,7 +196,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.292
 --- !u!114 &-3024953982048619375
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -495,21 +449,10 @@ MonoBehaviour:
   - {fileID: 3309577432123222743}
   - {fileID: 5538424628445653822}
   - {fileID: -6246213487073962069}
-  - {fileID: -8247379645248800802}
-  - {fileID: 3918690801582638357}
-  - {fileID: -8360924478906165974}
-  - {fileID: -7458118533203997880}
   - {fileID: -4821443494149636148}
-  - {fileID: 2811043561871577776}
   - {fileID: 8519802639945384309}
   - {fileID: -3697300729697630473}
   - {fileID: 1599907044274130879}
-  - {fileID: -7411732995720255550}
-  - {fileID: 6862277448225264900}
-  - {fileID: -6127131118856317343}
-  - {fileID: -1671287635964419798}
-  - {fileID: 5090491308571814868}
-  - {fileID: -3024953982048619375}
 --- !u!114 &1599907044274130879
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -546,10 +489,10 @@ MonoBehaviour:
     m_Value: 0
   blueOutGreenIn:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 4
   blueOutBlueIn:
     m_OverrideState: 1
-    m_Value: 100
+    m_Value: 147
 --- !u!114 &2811043561871577776
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -777,22 +720,22 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.14010501}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.1050788}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0}
+    m_Value: {x: 0.97946143, y: 0.99253696, z: 1, w: 1}
   shadowsStart:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   shadowsEnd:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.3
   highlightsStart:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.55
   highlightsEnd:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1
