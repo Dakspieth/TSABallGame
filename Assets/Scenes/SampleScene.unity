@@ -966,6 +966,7 @@ MonoBehaviour:
   duplicateHealth: 1
   duplicateSize: 0.5
   duplicateDamage: 1
+  rb: {fileID: 0}
 --- !u!1 &1345086583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,7 +1481,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.45
+  m_Radius: 0.5
 --- !u!50 &1658920823
 Rigidbody2D:
   serializedVersion: 5
@@ -1549,6 +1550,7 @@ MonoBehaviour:
   duplicateHealth: 1
   duplicateSize: 0.5
   duplicateDamage: 1
+  rb: {fileID: 0}
 --- !u!1 &1682100632
 GameObject:
   m_ObjectHideFlags: 0

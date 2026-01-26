@@ -18,8 +18,6 @@ public class CharacterScript : MonoBehaviour
     public bool unarmedSpeedOnHit;
 
     [Header("Duplicator")]
-    GameObject ballPrefab;
-    GameObject parent;
     public bool duplicator;
     public int duplicateHealth;
     public float duplicateSize;
@@ -27,7 +25,8 @@ public class CharacterScript : MonoBehaviour
     
 
     float angle;
-    Rigidbody2D rb;
+    [HideInInspector]
+    public Rigidbody2D rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,12 +39,15 @@ public class CharacterScript : MonoBehaviour
             Instantiate(swordPrefab, gameObject.transform);
         }
 
-        if(duplicator && gameObject.layer==0)
+        if (unarmed)
         {
-            parent = new GameObject();
-            parent.tag = gameObject.tag;
-            parent.name = "parent" + gameObject.tag;
+            gameObject.AddComponent<unarmedScript>();
         }
+        if (duplicator)
+        {
+            gameObject.AddComponent<duplicateScript>();
+        }
+
         
     }
 
@@ -55,10 +57,6 @@ public class CharacterScript : MonoBehaviour
         if(health <= 0)
         {
             Destroy(gameObject);
-            if (duplicator)
-            {
-                Destroy(parent);
-            }
         }
     }
     void FixedUpdate()
@@ -76,42 +74,6 @@ public class CharacterScript : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag != gameObject.tag && col.gameObject.tag != "Border") // rules for on collision if unarmed is enabled
-        {
-            if (unarmed)
-            {
-                StartCoroutine(HitStop());
-                col.gameObject.GetComponent<CharacterScript>().health -= unarmedDamage;
-                if (unarmedSpeedOnHit)
-                {
-                    speed += Mathf.Pow(10,-(speed+0.7f));
-                    rb.mass = rb.mass>0.1f ? rb.mass/1.5f : 0.1f;
-                }
-            }
-            
-            if(duplicator)
-            {
-                if(gameObject.layer == 0)
-                {
-                    //RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up * Random.Range(-1, 1) + transform.right * Random.Range(-1, 1), 50);
-                    float theta = Random.Range(0, 360);
-                    float x = Mathf.Cos(theta)*(transform.localScale.x/2+duplicateSize/2);
-                    float y = Mathf.Sin(theta)*(transform.localScale.x/2+duplicateSize/2);
-                    ballPrefab = Instantiate(gameObject, new Vector2(transform.position.x+x, transform.position.y+y), Quaternion.identity, parent.transform);
-                    ballPrefab.GetComponent<CharacterScript>().health = duplicateHealth;
-                    ballPrefab.transform.localScale *= duplicateSize;
-                    //ballPrefab.GetComponent<Rigidbody2D>().mass = 0.2f;
-                    //ballPrefab.GetComponent<Rigidbody2D>().gravityScale = 0.2f;
-                    ballPrefab.layer = 6;
-                }
-                if (gameObject.layer == 6)
-                {
-                    StartCoroutine(HitStop());
-                    col.gameObject.GetComponent<CharacterScript>().health -= unarmedDamage;
-                }
-            }
-
-        }
         angle = (rb.linearVelocity.x)/-7.5f;
     }
 
