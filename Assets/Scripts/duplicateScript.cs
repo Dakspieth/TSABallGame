@@ -53,8 +53,9 @@ public class duplicateScript : MonoBehaviour
             }
             if (gameObject.layer == 6)
             {
-                StartCoroutine(cs.HitStop());
+                StartCoroutine(cs.HitStop(col.gameObject));
                 col.gameObject.GetComponent<CharacterScript>().health -= damage;
+                col.gameObject.GetComponent<CharacterScript>().turnRed();
             }
         }
     }

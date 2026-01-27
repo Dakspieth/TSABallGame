@@ -18,7 +18,7 @@ public class unarmedScript : MonoBehaviour
     {
         if (col.gameObject.tag != gameObject.tag && col.gameObject.tag != "Border")
         {
-            StartCoroutine(cs.HitStop());
+            StartCoroutine(cs.HitStop(col.gameObject));
             col.gameObject.GetComponent<CharacterScript>().health -= damage;
             if (speedOnHit)
             {
