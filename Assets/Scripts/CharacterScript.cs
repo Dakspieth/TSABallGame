@@ -28,7 +28,7 @@ public class CharacterScript : MonoBehaviour
     
 
     public float angle;
-    float startX;
+    public float startX;
     [HideInInspector]
     public Rigidbody2D rb;
 
@@ -90,6 +90,7 @@ public class CharacterScript : MonoBehaviour
     {
         Time.timeScale = 0;
         SpriteRenderer sprite = hitGameobject.GetComponentInChildren<SpriteRenderer>();
+        hitGameobject.GetComponentInChildren<TextMeshPro>().text = "" + hitGameobject.GetComponent<CharacterScript>().health;
         yield return new WaitForSecondsRealtime(0.01f);
         cam.orthographicSize = 2.75f;
         bool changeColor = false;
