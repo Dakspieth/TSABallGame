@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class duplicateScript : MonoBehaviour
@@ -55,6 +56,7 @@ public class duplicateScript : MonoBehaviour
             {
                 StartCoroutine(cs.HitStop(col.gameObject));
                 col.gameObject.GetComponent<CharacterScript>().health -= damage;
+                col.gameObject.GetComponentInChildren<TextMeshPro>().text = "" + col.gameObject.GetComponent<CharacterScript>().health;
                 col.gameObject.GetComponent<CharacterScript>().turnRed();
             }
         }

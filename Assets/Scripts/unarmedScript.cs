@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class unarmedScript : MonoBehaviour
@@ -20,6 +21,7 @@ public class unarmedScript : MonoBehaviour
         {
             StartCoroutine(cs.HitStop(col.gameObject));
             col.gameObject.GetComponent<CharacterScript>().health -= damage;
+            col.gameObject.GetComponentInChildren<TextMeshPro>().text = "" + col.gameObject.GetComponent<CharacterScript>().health;
             if (speedOnHit)
             {
                 cs.speed += Mathf.Pow(10, -(cs.speed + 0.7f));

@@ -90,11 +90,9 @@ public class CharacterScript : MonoBehaviour
     {
         Time.timeScale = 0;
         SpriteRenderer sprite = hitGameobject.GetComponentInChildren<SpriteRenderer>();
-        hitGameobject.GetComponentInChildren<TextMeshPro>().text = "" + hitGameobject.GetComponent<CharacterScript>().health;
         yield return new WaitForSecondsRealtime(0.01f);
         cam.orthographicSize = 2.75f;
         bool changeColor = false;
-        print(hitGameobject);
         if (hitGameobject != null && hitGameobject.GetComponent<CharacterScript>().health > 0)
         {
             sprite.color = new Color(1, 0, 0);

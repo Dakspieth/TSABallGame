@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class swordScript : MonoBehaviour
@@ -34,6 +35,7 @@ public class swordScript : MonoBehaviour
             rotSpeed *= -1;
             }
             col.GetComponent<CharacterScript>().health-=damage;
+            col.gameObject.GetComponentInChildren<TextMeshPro>().text = "" + col.gameObject.GetComponent<CharacterScript>().health;
         }
     }
 
