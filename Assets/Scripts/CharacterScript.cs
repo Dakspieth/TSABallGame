@@ -47,6 +47,8 @@ public class CharacterScript : MonoBehaviour
     void Start()
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        GetComponentInChildren<TextMeshPro>(true).gameObject.SetActive(true);
+        GetComponentInChildren<TextMeshPro>().GetComponentInChildren<SpriteRenderer>().sprite = GetComponentInChildren<SpriteRenderer>().sprite;
         text = GetComponentInChildren<TMP_Text>();
 
         rb = transform.GetComponent<Rigidbody2D>();
@@ -90,15 +92,14 @@ public class CharacterScript : MonoBehaviour
         {
             Vector2.ClampMagnitude(rb.linearVelocity, speed+10f);
         }
-
+        
         GetComponentInChildren<TextMeshPro>().GetComponentInParent<RectTransform>().position = new Vector3(textX, transform.position.y, 0);
-        GetComponentInChildren<TextMeshPro>().GetComponentInChildren<SpriteRenderer>().sprite = GetComponentInChildren<SpriteRenderer>().sprite;
         text.text = health.ToString();
     }
 
     public void OnCollisionEnter2D(Collision2D col)
     {
-        angle = (rb.linearVelocity.x)/-7.5f;
+        angle = rb.linearVelocity.x/-7.5f;
     }
 
     public IEnumerator HitStop(GameObject hitGameobject)
