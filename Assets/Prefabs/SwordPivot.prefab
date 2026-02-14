@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6916659122159043925}
   - component: {fileID: 5346239212597006768}
   - component: {fileID: 5159160279470185147}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1282422257299246067}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SwordPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3497245716750367048}
   - component: {fileID: 3717842167248366572}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

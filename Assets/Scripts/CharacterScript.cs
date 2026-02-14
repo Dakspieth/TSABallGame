@@ -93,7 +93,7 @@ public class CharacterScript : MonoBehaviour
             Vector2.ClampMagnitude(rb.linearVelocity, speed+10f);
         }
         
-        GetComponentInChildren<TextMeshPro>().GetComponentInParent<RectTransform>().position = new Vector3(textX, transform.position.y, 0);
+        GetComponentInChildren<TextMeshPro>().GetComponentInParent<RectTransform>().position = new Vector3(transform.position.x, textX, 0);
         text.text = health.ToString();
     }
 

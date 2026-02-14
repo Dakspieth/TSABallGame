@@ -37,7 +37,7 @@ public class lifestealScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag != gameObject.tag && col.gameObject.tag != "Border")
+        if (col.gameObject.tag != gameObject.tag && col.gameObject.layer != 7 && col.gameObject.tag != "Border")
         {
             bool heal = Random.Range(0f,1f) < chance;
             if(heal)

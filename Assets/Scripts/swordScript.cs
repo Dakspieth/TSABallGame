@@ -27,7 +27,7 @@ public class swordScript : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.tag != gameObject.tag && col.gameObject.tag != "Border")
+        if(col.gameObject.tag != gameObject.tag && col.gameObject.layer != 7 && col.gameObject.tag != "Border")
         {
             StartCoroutine(col.GetComponent<CharacterScript>().HitStop(col.gameObject));
             if (col.gameObject.layer == 0)
