@@ -2928,6 +2928,10 @@ MonoBehaviour:
   lifestealDamage: 1
   lifestealSpeed: 540
   lifestealPrefab: {fileID: 1164867356698269860, guid: 1a8e41d0fdf69b341984482e1c196393, type: 3}
+  boostPowerup: 0
+  boostCooldown: 0
+  boostSpeed: 0
+  boostPanel: {fileID: 0}
   rb: {fileID: 0}
 --- !u!1 &1341696353
 GameObject:
@@ -3977,7 +3981,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1590314732
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4376,7 +4380,6 @@ GameObject:
   - component: {fileID: 1658920823}
   - component: {fileID: 1658920822}
   - component: {fileID: 1658920826}
-  - component: {fileID: 1658920827}
   m_Layer: 0
   m_Name: ball
   m_TagString: Player
@@ -4497,19 +4500,11 @@ MonoBehaviour:
   lifestealDamage: 1
   lifestealSpeed: 540
   lifestealPrefab: {fileID: 1164867356698269860, guid: 1a8e41d0fdf69b341984482e1c196393, type: 3}
+  boostPowerup: 1
+  boostCooldown: 5
+  boostSpeed: 5
+  boostPanel: {fileID: 1590314731}
   rb: {fileID: 0}
---- !u!114 &1658920827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658920821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87bb0f0771b48cf4387b9d446be301ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BoostScript
 --- !u!1 &1674633749
 GameObject:
   m_ObjectHideFlags: 0
