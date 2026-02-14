@@ -36,8 +36,13 @@ public class CharacterScript : MonoBehaviour
     public int lifestealDamage;
     public float lifestealSpeed;
     public GameObject lifestealPrefab;
+
+    [Header("BoostPowerup")]
+    public bool boostPowerup;
+    public float boostCooldown;
+    public float boostSpeed;  
     
-    
+    public GameObject boostPanel;
     [HideInInspector]
     public Rigidbody2D rb;
     TMP_Text text;
@@ -68,6 +73,10 @@ public class CharacterScript : MonoBehaviour
         if(lifesteal)
         {
             Instantiate(lifestealPrefab, gameObject.transform);
+        }
+        if(boostPowerup)
+        {
+            gameObject.AddComponent<BoostScript>();
         }
 
         
