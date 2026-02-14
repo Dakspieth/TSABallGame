@@ -5,7 +5,8 @@ public class swordScript : MonoBehaviour
 {
     //sigmaboy
     float rotSpeed;
-    int damage;
+    [HideInInspector]
+    public int damage;
     Transform parent;
     Transform ball;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

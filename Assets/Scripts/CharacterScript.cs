@@ -41,10 +41,24 @@ public class CharacterScript : MonoBehaviour
     public bool boostPowerup;
     public float boostCooldown;
     public float boostSpeed;  
-    
     public GameObject boostPanel;
+
+    [Header("HealPowerup")]
+    public bool healPowerup;
+    public float healCooldown;
+    public int healAmount;
+    public GameObject healPanel;
+
+    [Header("DamagePowerup")]
+    public bool damagePowerup;
+    public float damageCooldown;
+    public int damageMult;
+    public GameObject damagePanel;
+
     [HideInInspector]
     public Rigidbody2D rb;
+    float[] yPositions = {175, -175};
+    int powerupNum = 0;
     TMP_Text text;
     Camera cam;
 
@@ -66,7 +80,7 @@ public class CharacterScript : MonoBehaviour
         {
             gameObject.AddComponent<unarmedScript>();
         }
-        if (duplicator)
+        if (duplicator && gameObject.layer == 0)
         {
             gameObject.AddComponent<duplicateScript>();
         }
@@ -74,9 +88,23 @@ public class CharacterScript : MonoBehaviour
         {
             Instantiate(lifestealPrefab, gameObject.transform);
         }
-        if(boostPowerup)
+        if(boostPowerup && gameObject.layer == 0)
         {
             gameObject.AddComponent<BoostScript>();
+            boostPanel.transform.localPosition = new Vector2(boostPanel.transform.position.x, yPositions[powerupNum]);
+            powerupNum++;
+        }
+        if (healPowerup && gameObject.layer == 0)
+        {
+            gameObject.AddComponent<HealScript>();
+            healPanel.transform.localPosition = new Vector2(healPanel.transform.position.x, yPositions[powerupNum]);
+            powerupNum++;
+        }
+        if(damagePowerup && gameObject.layer == 0)
+        {
+            gameObject.AddComponent<DamageMultScript>();
+            damagePanel.transform.localPosition = new Vector2(damagePanel.transform.position.x, yPositions[powerupNum]);
+            powerupNum++;
         }
 
         
@@ -102,7 +130,7 @@ public class CharacterScript : MonoBehaviour
             Vector2.ClampMagnitude(rb.linearVelocity, speed+10f);
         }
         
-        GetComponentInChildren<TextMeshPro>().GetComponentInParent<RectTransform>().position = new Vector3(transform.position.x, textX, 0);
+        GetComponentInChildren<TextMeshPro>().GetComponentInParent<RectTransform>().position = new Vector3(textX, transform.position.y, 0);
         text.text = health.ToString();
     }
 

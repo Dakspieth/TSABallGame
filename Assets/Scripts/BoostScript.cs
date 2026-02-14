@@ -14,6 +14,7 @@ public class BoostScript : MonoBehaviour
     
     Button buttonLeft, buttonRight;
     TMP_Text heading;
+    string baseText;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class BoostScript : MonoBehaviour
         buttonRight = GameObject.FindWithTag("RightBoost").GetComponent<Button>();
         buttonRight.onClick.AddListener(RightBoost);
         heading = buttonLeft.transform.parent.GetComponentInChildren<TMP_Text>();
+        baseText = heading.text;
     }
 
     public void Update()
@@ -38,31 +40,31 @@ public class BoostScript : MonoBehaviour
         if(timer > 0)
         {
             timer -= Time.deltaTime;
-            heading.text = "Boost (" + (Mathf.Round(10 * timer)/10).ToString("N1") + ")";
+            heading.text = baseText + " (" + (Mathf.Round(10 * timer)/10).ToString("N1") + ")";
         } else
         {
-            heading.text = "Boost";
+            heading.text = baseText;
         }
     }
 
     public void LeftBoost()
     {
         rb.AddForce(Vector2.right * -speed, ForceMode2D.Impulse);
-        StartCoroutine(cooldown());
+        StartCoroutine(Cooldown());
     }
 
     public void RightBoost()
     {
         rb.AddForce(Vector2.right * speed, ForceMode2D.Impulse);
-        StartCoroutine(cooldown());
+        StartCoroutine(Cooldown());
     }
 
-    IEnumerator cooldown()
+    IEnumerator Cooldown()
     {
         buttonLeft.interactable = false;
         buttonRight.interactable = false;
         timer = cooldownTime;
-        yield return new WaitForSecondsRealtime(cooldownTime);
+        yield return new WaitForSeconds(cooldownTime);
         buttonLeft.interactable = true;
         buttonRight.interactable = true;
 

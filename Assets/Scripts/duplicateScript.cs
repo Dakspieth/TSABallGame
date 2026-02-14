@@ -1,14 +1,18 @@
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
 public class duplicateScript : MonoBehaviour
 {
     CharacterScript cs;
-    GameObject ballPrefab;
-    GameObject parent;
 
-    int health, damage;
+    [HideInInspector]
+    public int health, damage;
+    [HideInInspector]
+    public GameObject parent;
+    GameObject ballPrefab;
     float size;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,16 +24,18 @@ public class duplicateScript : MonoBehaviour
 
         if (gameObject.layer == 0)
         {
-            parent = new GameObject();
-            parent.tag = gameObject.tag;
-            parent.name = "parent" + gameObject.tag;
+            parent = new GameObject
+            {
+                tag = gameObject.tag,
+                name = "parent" + gameObject.tag
+            };
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(cs.health <= 0)
+        if(gameObject.layer == 0 && cs.health <= 0)
         {
             Destroy(parent);
         }
@@ -50,9 +56,9 @@ public class duplicateScript : MonoBehaviour
                 ballPrefab.transform.localScale *= size;
                 //ballPrefab.GetComponent<Rigidbody2D>().mass = 0.2f;
                 //ballPrefab.GetComponent<Rigidbody2D>().gravityScale = 0.2f;
-                ballPrefab.layer = 6;
+                ballPrefab.layer = 3;
             }
-            if (gameObject.layer == 6)
+            if (gameObject.layer == 3)
             {
                 StartCoroutine(cs.HitStop(col.gameObject));
                 col.gameObject.GetComponent<CharacterScript>().health -= damage;

@@ -6,7 +6,8 @@ public class lifestealScript : MonoBehaviour
     CharacterScript cs;
     float chance;
     int amount;
-    int damage;
+    [HideInInspector]
+    public int damage;
     float speed;
 
     Transform parent, ball;

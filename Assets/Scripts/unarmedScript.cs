@@ -5,7 +5,8 @@ public class unarmedScript : MonoBehaviour
 {
     //sigmaboy
     CharacterScript cs;
-    float damage;
+    [HideInInspector]
+    public float damage;
     bool speedOnHit;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

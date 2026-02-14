@@ -9,11 +9,13 @@ TagManager:
   - Volume
   - LeftBoost
   - RightBoost
+  - HealButton
+  - DamageButton
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Duplicate
   - Water
   - UI
   - UI Text
