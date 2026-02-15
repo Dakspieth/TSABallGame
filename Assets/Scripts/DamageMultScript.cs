@@ -8,6 +8,7 @@ public class DamageMultScript : MonoBehaviour
 {
     CharacterScript cs;
     float multAmount;
+    float damageTime;
     float cooldownTime;
     Button damageButton;
     float timer;
@@ -23,6 +24,7 @@ public class DamageMultScript : MonoBehaviour
         cs = GetComponent<CharacterScript>();
         cs.damagePanel.SetActive(true);
         multAmount = cs.healAmount;
+        damageTime = cs.damageTime;
         cooldownTime = cs.healCooldown;
         damageButton = GameObject.FindWithTag("DamageButton").GetComponent<Button>();
         damageButton.onClick.AddListener(DamageMult);
@@ -72,7 +74,7 @@ public class DamageMultScript : MonoBehaviour
     {
         damageButton.interactable = false;
         timer = cooldownTime;
-        yield return new WaitForSeconds(cooldownTime/3);
+        yield return new WaitForSeconds(damageTime);
         if (cs.sword)
         {
             GetComponentInChildren<swordScript>().damage/=2;
@@ -94,7 +96,7 @@ public class DamageMultScript : MonoBehaviour
         {
             GetComponentInChildren<lifestealScript>().damage /= 2;
         }
-        yield return new WaitForSeconds(cooldownTime/3*2);
+        yield return new WaitForSeconds(cooldownTime-damageTime > 0 ? cooldownTime-damageTime : 0);
 
         damageButton.interactable = true;
     }

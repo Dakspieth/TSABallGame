@@ -11,6 +11,8 @@ TagManager:
   - RightBoost
   - HealButton
   - DamageButton
+  - UpBoost
+  - DownBoost
   layers:
   - Default
   - TransparentFX

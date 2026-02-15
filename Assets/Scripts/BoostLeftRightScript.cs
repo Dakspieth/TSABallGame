@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BoostScript : MonoBehaviour
+public class BoostLeftRightScript : MonoBehaviour
 {
     Rigidbody2D rb;
     CharacterScript cs;
@@ -24,9 +24,9 @@ public class BoostScript : MonoBehaviour
         }
         rb = GetComponent<Rigidbody2D>();
         cs = GetComponent<CharacterScript>();
-        speed = cs.boostSpeed;
-        cooldownTime = cs.boostCooldown;
-        cs.boostPanel.SetActive(true);
+        speed = cs.boostLeftRightSpeed;
+        cooldownTime = cs.boostLeftRightCooldown;
+        cs.boostLeftRightPanel.SetActive(true);
         buttonLeft = GameObject.FindWithTag("LeftBoost").GetComponent<Button>();
         buttonLeft.onClick.AddListener(LeftBoost);
         buttonRight = GameObject.FindWithTag("RightBoost").GetComponent<Button>();
