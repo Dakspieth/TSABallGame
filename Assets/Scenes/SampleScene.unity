@@ -3713,7 +3713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterScript
   health: 25
   speed: 0
-  textX: -3
+  textX: -4
   sword: 0
   swordDamage: 3
   swordSpeed: 360
