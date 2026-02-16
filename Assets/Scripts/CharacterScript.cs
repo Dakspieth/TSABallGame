@@ -74,6 +74,19 @@ public class CharacterScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
+        if(gameObject.tag == "Player" && PlayerVars.fromPreMatch)
+        {
+            unarmed = PlayerVars.unarmed;
+            sword = PlayerVars.sword;
+            duplicator = PlayerVars.duplicate;
+            lifesteal = PlayerVars.lifesteal;
+            boostUpDownPowerup = PlayerVars.boostUD;
+            boostLeftRightPowerup = PlayerVars.boostLR;
+            damagePowerup = PlayerVars.damageMult;
+            healPowerup = PlayerVars.heal;  
+        }
+        
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         GetComponentInChildren<TextMeshPro>(true).gameObject.SetActive(true);
         GetComponentInChildren<TextMeshPro>().GetComponentInChildren<SpriteRenderer>().sprite = GetComponentInChildren<SpriteRenderer>().sprite;
@@ -155,18 +168,21 @@ public class CharacterScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Vector2.ClampMagnitude(rb.linearVelocity, 0f);
+
     }
     void FixedUpdate()
     {
         
-        if (rb.linearVelocity.magnitude < speed)
+        print(rb.linearVelocity.magnitude + "   " + gameObject.name);
+        /*if (rb.linearVelocity.magnitude < speed)
         {
             rb.linearVelocity *= speed;
         }
         if (rb.linearVelocity.magnitude > speed + 10f) 
         {
             Vector2.ClampMagnitude(rb.linearVelocity, speed+10f);
-        }
+        }*/
         
         GetComponentInChildren<TextMeshPro>().GetComponentInParent<RectTransform>().position = new Vector3(textX, transform.position.y, 0);
         text.text = health.ToString();
