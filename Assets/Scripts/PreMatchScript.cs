@@ -9,6 +9,7 @@ using Unity.VectorGraphics;
 using UnityEngine.SceneManagement;
 public class PreMatchScript : MonoBehaviour
 {
+    // ADADAD
     public GameObject abilities, powerups;
 
 ///////////////////////////////////////////////
@@ -44,6 +45,11 @@ public class PreMatchScript : MonoBehaviour
     String lastDesc = null;
     public Button nextButton, backButton;
     int numPowerups = 0;
+
+    //25343F
+    Color bgColor = new Color(0.145098039f, 0.203921569f, 0.247058824f);
+    //EAEFEF
+    Color textColor = new Color(0.917647059f, 0.937254902f, 0.937254902f);
     void Start()
     {
         PlayerVars.fromPreMatch = true;
@@ -62,6 +68,24 @@ public class PreMatchScript : MonoBehaviour
         backButton.gameObject.SetActive(false);
     }
 
+    void SwitchColor(bool On, Button button) 
+    {
+        TMP_Text[] text = button.GetComponentsInChildren<TMP_Text>();
+        if(On)
+        {
+            button.gameObject.GetComponent<Image>().color = textColor;
+            foreach (TMP_Text textObj in text){
+                textObj.color = bgColor;                
+            }
+        } else
+        {
+            button.gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            foreach (TMP_Text textObj in text){
+                textObj.color = textColor;                
+            }
+        }
+        print(button.gameObject.GetComponent<Image>().color);
+    }
     public void NextClick()
     {   
         if(heading.text == heading2)
@@ -95,11 +119,16 @@ public class PreMatchScript : MonoBehaviour
         if (PlayerVars.boostUD)
         {
             description.text = boostUDDesc;
-            boostUDButton.gameObject.GetComponent<Image>().color = selectedColor;
+            //boostUDButton.gameObject.GetComponent<Image>().color = selectedColor;
         } else
         {
-            boostUDButton.gameObject.GetComponent<Image>().color = Color.white; 
+            //boostUDButton.gameObject.GetComponent<Image>().color = Color.white; 
         }
+
+        SwitchColor(PlayerVars.boostUD, boostUDButton);
+        SwitchColor(PlayerVars.boostLR, boostLRButton);
+        SwitchColor(PlayerVars.damageMult, damageButton);
+        SwitchColor(PlayerVars.heal, healButton); 
     }
 
     public void BoostLRClick()
@@ -111,11 +140,15 @@ public class PreMatchScript : MonoBehaviour
         if (PlayerVars.boostLR)
         {
             description.text = boostLRDesc;
-            boostLRButton.gameObject.GetComponent<Image>().color = selectedColor;
+            //boostLRButton.gameObject.GetComponent<Image>().color = selectedColor;
         } else
         {
-            boostLRButton.gameObject.GetComponent<Image>().color = Color.white; 
+            //boostLRButton.gameObject.GetComponent<Image>().color = Color.white; 
         }
+        SwitchColor(PlayerVars.boostUD, boostUDButton);
+        SwitchColor(PlayerVars.boostLR, boostLRButton);
+        SwitchColor(PlayerVars.damageMult, damageButton);
+        SwitchColor(PlayerVars.heal, healButton); 
     }
 
     public void DamageClick()
@@ -127,11 +160,15 @@ public class PreMatchScript : MonoBehaviour
         if (PlayerVars.damageMult)
         {
             description.text = damageDesc;
-            damageButton.gameObject.GetComponent<Image>().color = selectedColor;
+            //damageButton.gameObject.GetComponent<Image>().color = selectedColor;
         } else
         {
-            damageButton.gameObject.GetComponent<Image>().color = Color.white;
-        }        
+            //damageButton.gameObject.GetComponent<Image>().color = Color.white;
+        }
+        SwitchColor(PlayerVars.boostUD, boostUDButton);
+        SwitchColor(PlayerVars.boostLR, boostLRButton);
+        SwitchColor(PlayerVars.damageMult, damageButton);
+        SwitchColor(PlayerVars.heal, healButton);        
     }
 
     public void HealClick()
@@ -143,11 +180,15 @@ public class PreMatchScript : MonoBehaviour
         if (PlayerVars.heal)
         {
             description.text = healDesc;
-            healButton.gameObject.GetComponent<Image>().color = selectedColor;
+            //healButton.gameObject.GetComponent<Image>().color = selectedColor;
         } else
         {
-            healButton.gameObject.GetComponent<Image>().color = Color.white;
-        } 
+            //healButton.gameObject.GetComponent<Image>().color = Color.white;
+        }
+        SwitchColor(PlayerVars.boostUD, boostUDButton);
+        SwitchColor(PlayerVars.boostLR, boostLRButton);
+        SwitchColor(PlayerVars.damageMult, damageButton);
+        SwitchColor(PlayerVars.heal, healButton); 
     }
 
     void MaxPowerups()
@@ -180,6 +221,12 @@ public class PreMatchScript : MonoBehaviour
         lifestealButton.interactable = true;
 
         nextButton.interactable = true;
+
+        SwitchColor(PlayerVars.unarmed, unarmedButton);
+        SwitchColor(PlayerVars.sword, swordButton);
+        SwitchColor(PlayerVars.duplicate, duplicateButton);
+        SwitchColor(PlayerVars.lifesteal, lifestealButton);
+
     }
     public void SwordClick()
     {
@@ -194,6 +241,11 @@ public class PreMatchScript : MonoBehaviour
         lifestealButton.interactable = true;
 
         nextButton.interactable = true;
+
+        SwitchColor(PlayerVars.unarmed, unarmedButton);
+        SwitchColor(PlayerVars.sword, swordButton);
+        SwitchColor(PlayerVars.duplicate, duplicateButton);
+        SwitchColor(PlayerVars.lifesteal, lifestealButton);
     }
     public void DuplicateClick()
     {
@@ -208,6 +260,11 @@ public class PreMatchScript : MonoBehaviour
         lifestealButton.interactable = true;
 
         nextButton.interactable = true;
+
+        SwitchColor(PlayerVars.unarmed, unarmedButton);
+        SwitchColor(PlayerVars.sword, swordButton);
+        SwitchColor(PlayerVars.duplicate, duplicateButton);
+        SwitchColor(PlayerVars.lifesteal, lifestealButton);
     }
     public void LifestealClick()
     {
@@ -222,5 +279,10 @@ public class PreMatchScript : MonoBehaviour
         lifestealButton.interactable = false; // false
 
         nextButton.interactable = true;
+
+        SwitchColor(PlayerVars.unarmed, unarmedButton);
+        SwitchColor(PlayerVars.sword, swordButton);
+        SwitchColor(PlayerVars.duplicate, duplicateButton);
+        SwitchColor(PlayerVars.lifesteal, lifestealButton);
     }
 }
