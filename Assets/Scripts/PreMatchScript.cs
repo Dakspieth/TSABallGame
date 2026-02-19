@@ -45,6 +45,7 @@ public class PreMatchScript : MonoBehaviour
     String lastDesc = null;
     public Button nextButton, backButton;
     int numPowerups = 0;
+    String[] powerupList = {null, null};
 
     //25343F
     Color bgColor = new Color(0.145098039f, 0.203921569f, 0.247058824f);
@@ -115,14 +116,11 @@ public class PreMatchScript : MonoBehaviour
     {
         PlayerVars.boostUD = !PlayerVars.boostUD;
         numPowerups += PlayerVars.boostUD ? 1 : -1;
-        MaxPowerups();
+        MaxPowerups("boostUD");
         if (PlayerVars.boostUD)
         {
             description.text = boostUDDesc;
-            //boostUDButton.gameObject.GetComponent<Image>().color = selectedColor;
-        } else
-        {
-            //boostUDButton.gameObject.GetComponent<Image>().color = Color.white; 
+            powerupList[numPowerups-1] = "boostUD";
         }
 
         SwitchColor(PlayerVars.boostUD, boostUDButton);
@@ -136,14 +134,11 @@ public class PreMatchScript : MonoBehaviour
         
         PlayerVars.boostLR = !PlayerVars.boostLR;
         numPowerups += PlayerVars.boostLR ? 1 : -1;
-        MaxPowerups();
+        MaxPowerups("boostLR");
         if (PlayerVars.boostLR)
         {
             description.text = boostLRDesc;
-            //boostLRButton.gameObject.GetComponent<Image>().color = selectedColor;
-        } else
-        {
-            //boostLRButton.gameObject.GetComponent<Image>().color = Color.white; 
+            powerupList[numPowerups-1] = "boostLR";
         }
         SwitchColor(PlayerVars.boostUD, boostUDButton);
         SwitchColor(PlayerVars.boostLR, boostLRButton);
@@ -156,14 +151,11 @@ public class PreMatchScript : MonoBehaviour
         
         PlayerVars.damageMult = !PlayerVars.damageMult;
         numPowerups += PlayerVars.damageMult ? 1 : -1;
-        MaxPowerups();
+        MaxPowerups("damage");
         if (PlayerVars.damageMult)
         {
             description.text = damageDesc;
-            //damageButton.gameObject.GetComponent<Image>().color = selectedColor;
-        } else
-        {
-            //damageButton.gameObject.GetComponent<Image>().color = Color.white;
+            powerupList[numPowerups-1] = "damage";
         }
         SwitchColor(PlayerVars.boostUD, boostUDButton);
         SwitchColor(PlayerVars.boostLR, boostLRButton);
@@ -176,14 +168,11 @@ public class PreMatchScript : MonoBehaviour
         
         PlayerVars.heal = !PlayerVars.heal;
         numPowerups += PlayerVars.heal ? 1 : -1;
-        MaxPowerups();       
+        MaxPowerups("heal");       
         if (PlayerVars.heal)
         {
             description.text = healDesc;
-            //healButton.gameObject.GetComponent<Image>().color = selectedColor;
-        } else
-        {
-            //healButton.gameObject.GetComponent<Image>().color = Color.white;
+            powerupList[numPowerups-1] = "heal";
         }
         SwitchColor(PlayerVars.boostUD, boostUDButton);
         SwitchColor(PlayerVars.boostLR, boostLRButton);
@@ -191,20 +180,32 @@ public class PreMatchScript : MonoBehaviour
         SwitchColor(PlayerVars.heal, healButton); 
     }
 
-    void MaxPowerups()
+    void MaxPowerups(String current)
     {
         if(numPowerups >= 2)
         {
-            boostLRButton.interactable = PlayerVars.boostLR;
-            boostUDButton.interactable = PlayerVars.boostUD;
-            damageButton.interactable = PlayerVars.damageMult;
-            healButton.interactable = PlayerVars.heal;
-        } else
-        {
-            boostLRButton.interactable = true;
-            boostUDButton.interactable = true;
-            damageButton.interactable = true;
-            healButton.interactable = true;
+            // bad code, dont care
+            switch (powerupList[0])
+            {
+                case "boostUD":
+                    PlayerVars.boostUD = false;
+                    break;
+                case "boostLR":
+                    PlayerVars.boostLR = false;
+                    break;
+                case "damage":
+                    PlayerVars.damageMult = false;
+                    break;
+                case "heal":
+                    PlayerVars.heal = false;
+                    break;
+            }
+            powerupList[0] = powerupList[1];
+            powerupList[1] = current;
+            SwitchColor(PlayerVars.boostUD, boostUDButton);
+            SwitchColor(PlayerVars.boostLR, boostLRButton);
+            SwitchColor(PlayerVars.damageMult, damageButton);
+            SwitchColor(PlayerVars.heal, healButton); 
         }
     }
     
