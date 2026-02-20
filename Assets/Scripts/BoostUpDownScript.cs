@@ -49,13 +49,15 @@ public class BoostUpDownScript : MonoBehaviour
 
     public void UpBoost()
     {
-        rb.AddForce(Vector2.up * speed, ForceMode2D.Impulse);
+        //rb.AddForce(new Vector2(0, rb.linearVelocityY) + Vector2.up * speed, ForceMode2D.Impulse);
+        rb.linearVelocity = new Vector2(rb.linearVelocityX, Mathf.Abs(rb.linearVelocityY) + speed);
         StartCoroutine(Cooldown());
     }
 
     public void DownBoost()
     {
-        rb.AddForce(Vector2.up * -speed, ForceMode2D.Impulse);
+        //rb.AddForce(new Vector2(0, -rb.linearVelocityY) + Vector2.up * -speed, ForceMode2D.Impulse);
+        rb.linearVelocity = new Vector2(rb.linearVelocityX, -Mathf.Abs(rb.linearVelocityY) - speed);
         StartCoroutine(Cooldown());
     }
 

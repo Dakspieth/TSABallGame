@@ -49,13 +49,17 @@ public class BoostLeftRightScript : MonoBehaviour
 
     public void LeftBoost()
     {
-        rb.AddForce(Vector2.right * -speed, ForceMode2D.Impulse);
+        //rb.AddForce(Vector2.right * -speed, ForceMode2D.Impulse);
+        rb.linearVelocity = new Vector2(-Mathf.Abs(rb.linearVelocityX) - speed, rb.linearVelocityY);                
+
         StartCoroutine(Cooldown());
     }
 
     public void RightBoost()
     {
-        rb.AddForce(Vector2.right * speed, ForceMode2D.Impulse);
+        //rb.AddForce(Vector2.right * speed, ForceMode2D.Impulse);
+        rb.linearVelocity = new Vector2(Mathf.Abs(rb.linearVelocityX) + speed, rb.linearVelocityY);        
+        
         StartCoroutine(Cooldown());
     }
 
