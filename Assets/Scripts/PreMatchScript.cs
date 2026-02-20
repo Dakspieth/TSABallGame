@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityEditor.SceneManagement;
 using Unity.VectorGraphics;
 using UnityEngine.SceneManagement;
+using System.Net;
 public class PreMatchScript : MonoBehaviour
 {
     // ADADAD
@@ -44,8 +45,7 @@ public class PreMatchScript : MonoBehaviour
     public TMP_Text description;
     String lastDesc = null;
     public Button nextButton, backButton;
-    int numPowerups = 0;
-    String[] powerupList = {null, null};
+
 
     //25343F
     Color bgColor = new Color(0.145098039f, 0.203921569f, 0.247058824f);
@@ -65,8 +65,18 @@ public class PreMatchScript : MonoBehaviour
         description.text = "Choose an ability to see its description"; // initial text
         lastDesc = description.text;
         nextButton.GetComponentInChildren<TMP_Text>().text = "Next";
-        nextButton.interactable = false;
+        nextButton.interactable = PlayerVars.playedTheseGamesBefore;
         backButton.gameObject.SetActive(false);
+        //print(PlayerVars.numPowerups);
+        SwitchColor(PlayerVars.unarmed, unarmedButton);
+        SwitchColor(PlayerVars.sword, swordButton);
+        SwitchColor(PlayerVars.duplicate, duplicateButton);
+        SwitchColor(PlayerVars.lifesteal, lifestealButton);
+
+        SwitchColor(PlayerVars.boostUD, boostUDButton);
+        SwitchColor(PlayerVars.boostLR, boostLRButton);
+        SwitchColor(PlayerVars.damageMult, damageButton);
+        SwitchColor(PlayerVars.heal, healButton); 
     }
 
     void SwitchColor(bool On, Button button) 
@@ -90,7 +100,7 @@ public class PreMatchScript : MonoBehaviour
     {   
         if(heading.text == heading2)
         {
-            SceneManager.LoadSceneAsync(0);
+            SceneManager.LoadSceneAsync(1);
         }
         abilities.SetActive(false);
         powerups.SetActive(true);
@@ -114,13 +124,14 @@ public class PreMatchScript : MonoBehaviour
     public void BoostUDClick()
     {
         PlayerVars.boostUD = !PlayerVars.boostUD;
-        numPowerups += PlayerVars.boostUD ? 1 : -1;
-        if (PlayerVars.boostUD && numPowerups <= 2)
+        PlayerVars.numPowerups += PlayerVars.boostUD ? 1 : -1;
+        description.text = boostUDDesc;
+        
+        if (PlayerVars.boostUD && PlayerVars.numPowerups <= 2)
         {
-            description.text = boostUDDesc;
-            powerupList[numPowerups-1] = "boostUD";
+            PlayerVars.powerupList[PlayerVars.numPowerups-1] = "boostUD";
         }
-        MaxPowerups("boostUD");
+        MaxPowerups("boostUD", PlayerVars.boostUD);
 
     }
 
@@ -128,13 +139,13 @@ public class PreMatchScript : MonoBehaviour
     {
         
         PlayerVars.boostLR = !PlayerVars.boostLR;
-        numPowerups += PlayerVars.boostLR ? 1 : -1;
-        if (PlayerVars.boostLR && numPowerups <= 2)
+        PlayerVars.numPowerups += PlayerVars.boostLR ? 1 : -1;
+        description.text = boostLRDesc;
+        if (PlayerVars.boostLR && PlayerVars.numPowerups <= 2)
         {
-            description.text = boostLRDesc;
-            powerupList[numPowerups-1] = "boostLR";
+            PlayerVars.powerupList[PlayerVars.numPowerups-1] = "boostLR";
         }
-        MaxPowerups("boostLR");
+        MaxPowerups("boostLR", PlayerVars.boostLR);
 
     }
 
@@ -142,13 +153,13 @@ public class PreMatchScript : MonoBehaviour
     {
         
         PlayerVars.damageMult = !PlayerVars.damageMult;
-        numPowerups += PlayerVars.damageMult ? 1 : -1;
-        if (PlayerVars.damageMult && numPowerups <= 2)
+        PlayerVars.numPowerups += PlayerVars.damageMult ? 1 : -1;
+        description.text = damageDesc;
+        if (PlayerVars.damageMult && PlayerVars.numPowerups <= 2)
         {
-            description.text = damageDesc;
-            powerupList[numPowerups-1] = "damage";
+            PlayerVars.powerupList[PlayerVars.numPowerups-1] = "damage";
         }
-        MaxPowerups("damage");
+        MaxPowerups("damage", PlayerVars.damageMult);
 
     }
 
@@ -156,22 +167,36 @@ public class PreMatchScript : MonoBehaviour
     {
         
         PlayerVars.heal = !PlayerVars.heal;
-        numPowerups += PlayerVars.heal ? 1 : -1;
-        if (PlayerVars.heal && numPowerups <= 2)
+        PlayerVars.numPowerups += PlayerVars.heal ? 1 : -1;
+        description.text = healDesc;
+        if (PlayerVars.heal && PlayerVars.numPowerups <= 2)
         {
-            description.text = healDesc;
-            powerupList[numPowerups-1] = "heal";
+            PlayerVars.powerupList[PlayerVars.numPowerups-1] = "heal";
         }
-        MaxPowerups("heal");       
+        MaxPowerups("heal", PlayerVars.heal);       
 
     }
 
-    void MaxPowerups(String current)
+    void MaxPowerups(String current, bool on)
     {
-        if(numPowerups > 2)
+        if (!on)
+        {
+            for(int i=0; i < PlayerVars.powerupList.Length; i++)
+            {
+                if(PlayerVars.powerupList[i] == current && i == 0)
+                {
+                    PlayerVars.powerupList[0] = PlayerVars.powerupList[1];
+                    PlayerVars.powerupList[1] = null;
+                } else if (PlayerVars.powerupList[i] == current)
+                {
+                    PlayerVars.powerupList[1] = null;
+                }                        
+            }        
+        }
+        if(PlayerVars.numPowerups > 2)
         {
             // bad code, dont care
-            switch (powerupList[0])
+            switch (PlayerVars.powerupList[0])
             {
                 case "boostUD":
                     PlayerVars.boostUD = false;
@@ -185,11 +210,14 @@ public class PreMatchScript : MonoBehaviour
                 case "heal":
                     PlayerVars.heal = false;
                     break;
+                default:
+                    break;
             }
-            powerupList[0] = powerupList[1];
-            powerupList[1] = current;
-            numPowerups = 2;
+            PlayerVars.powerupList[0] = PlayerVars.powerupList[1];
+            PlayerVars.powerupList[1] = current;
+            PlayerVars.numPowerups = 2;
         }
+       //print(String.Join(", ", PlayerVars.powerupList));
         SwitchColor(PlayerVars.boostUD, boostUDButton);
         SwitchColor(PlayerVars.boostLR, boostLRButton);
         SwitchColor(PlayerVars.damageMult, damageButton);
@@ -209,6 +237,7 @@ public class PreMatchScript : MonoBehaviour
         lifestealButton.interactable = true;
 
         nextButton.interactable = true;
+        PlayerVars.playedTheseGamesBefore = true;
 
         SwitchColor(PlayerVars.unarmed, unarmedButton);
         SwitchColor(PlayerVars.sword, swordButton);
@@ -229,6 +258,8 @@ public class PreMatchScript : MonoBehaviour
         lifestealButton.interactable = true;
 
         nextButton.interactable = true;
+        PlayerVars.playedTheseGamesBefore = true;
+
 
         SwitchColor(PlayerVars.unarmed, unarmedButton);
         SwitchColor(PlayerVars.sword, swordButton);
@@ -248,6 +279,7 @@ public class PreMatchScript : MonoBehaviour
         lifestealButton.interactable = true;
 
         nextButton.interactable = true;
+        PlayerVars.playedTheseGamesBefore = true;
 
         SwitchColor(PlayerVars.unarmed, unarmedButton);
         SwitchColor(PlayerVars.sword, swordButton);
@@ -267,6 +299,7 @@ public class PreMatchScript : MonoBehaviour
         lifestealButton.interactable = false; // false
 
         nextButton.interactable = true;
+        PlayerVars.playedTheseGamesBefore = true;
 
         SwitchColor(PlayerVars.unarmed, unarmedButton);
         SwitchColor(PlayerVars.sword, swordButton);

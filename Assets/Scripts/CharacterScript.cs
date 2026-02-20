@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Rendering;
 using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterScript : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class CharacterScript : MonoBehaviour
     public float speed;
     public float textX;
     public GameObject powerupPanel;
+    public Animator winLoseAnimator;
+    
     float angle;
     [Header("Sword")]
     public bool sword; // spinning sword that does damage on hit
@@ -72,6 +76,7 @@ public class CharacterScript : MonoBehaviour
     TMP_Text text;
     Transform textTransform;
     Camera cam;
+    bool winLoseBound = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -96,23 +101,26 @@ public class CharacterScript : MonoBehaviour
         textTransform = GetComponentInChildren<TextMeshPro>().GetComponentInParent<RectTransform>();
         rb = transform.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.right * Random.Range(-5, 5) + transform.up * Random.Range(0, 3), ForceMode2D.Impulse); // initial randomized velocities
-        
+        winLoseAnimator.gameObject.SetActive(false);
+        PlayerVars.loser = null;
         // if you want to make these lines better without all the if statements be my guest
-        if (sword)
-        {
-            Instantiate(swordPrefab, gameObject.transform);
-        }
-        if (unarmed)
-        {
-            gameObject.AddComponent<unarmedScript>();
-        }
-        if (duplicator && gameObject.layer == 0)
-        {
-            gameObject.AddComponent<duplicateScript>();
-        }
-        if(lifesteal)
-        {
-            Instantiate(lifestealPrefab, gameObject.transform);
+        if(gameObject.layer == 0){
+            if (sword)
+            {
+                Instantiate(swordPrefab, gameObject.transform);
+            }
+            if (unarmed)
+            {
+                gameObject.AddComponent<unarmedScript>();
+            }
+            if (duplicator)
+            {
+                gameObject.AddComponent<duplicateScript>();
+            }
+            if(lifesteal)
+            {
+                Instantiate(lifestealPrefab, gameObject.transform);
+            }
         }
 
         // Start adding powerups, max of 2 (change max by adding to the yPositions list)
@@ -168,8 +176,10 @@ public class CharacterScript : MonoBehaviour
         transform.Find("sprite").eulerAngles += new Vector3(0, 0, angle);
         if(health <= 0)
         {
-            PlayerVars.loser = gameObject.tag;
-            powerupPanel.SetActive(false);
+            if(gameObject.layer == 0){
+                PlayerVars.loser = gameObject.tag;
+                powerupPanel.SetActive(false);
+            }
             Destroy(gameObject);
         }
         Vector2.ClampMagnitude(rb.linearVelocity, 0f);
@@ -189,17 +199,45 @@ public class CharacterScript : MonoBehaviour
         
         textTransform.position = new Vector3(textX, transform.position.y, 0);
         text.text = health.ToString();
-        if(PlayerVars.loser != null)
+        if(PlayerVars.loser != null && !winLoseBound)
         {
             if(PlayerVars.loser == "Enemy")
             {
-                print("you win");
+                WinLose(true);
+                winLoseBound = true;
             } else if(PlayerVars.loser == "Player")
             {
-                print("You lose");
+                WinLose(false);
+                winLoseBound = true;
             }   
         }
         
+    }
+
+    void WinLose(bool win)
+    {
+        winLoseAnimator.gameObject.SetActive(true);
+        Button button = winLoseAnimator.GetComponentInChildren<Button>(true);
+        switch (win)
+        {
+            case true:
+                winLoseAnimator.gameObject.GetComponentInChildren<TMP_Text>().text = "You win!";
+                button.onClick.AddListener(WinOnClick);
+                break;
+            case false:
+                winLoseAnimator.gameObject.GetComponentInChildren<TMP_Text>().text = "You lose";
+                button.onClick.AddListener(LoseOnClick);
+                break;
+            
+        }
+    }
+    void WinOnClick()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
+    void LoseOnClick()
+    {
+        SceneManager.LoadSceneAsync(1);        
     }
 
     public void OnCollisionEnter2D(Collision2D col)

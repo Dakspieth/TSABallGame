@@ -4,6 +4,7 @@ using UnityEngine;
 public static class PlayerVars
 {
     public static bool fromPreMatch = false;
+    public static bool playedTheseGamesBefore = false;
     public static bool sword = false;
     public static bool unarmed = false;
     public static bool duplicate = false;
@@ -14,5 +15,7 @@ public static class PlayerVars
     public static bool heal = false;
 
     public static string loser = null; 
+    public static string[] powerupList = {null, null};
+    public static int numPowerups = 0;
     
 }
