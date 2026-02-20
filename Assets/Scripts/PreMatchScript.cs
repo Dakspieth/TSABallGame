@@ -36,7 +36,7 @@ public class PreMatchScript : MonoBehaviour
     public Button damageButton;
     String damageDesc = "when pressed:\n - 2x damage\n   for 1 second\n\n5 second cooldown";
     public Button healButton;
-    String healDesc = "when pressed:\n - heal 2 hp\n\n3 second cooldown";
+    String healDesc = "when pressed:\n - heal 1 hp\n\n3 second cooldown";
 
     
     public TMP_Text heading;

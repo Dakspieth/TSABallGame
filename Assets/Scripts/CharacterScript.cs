@@ -100,11 +100,12 @@ public class CharacterScript : MonoBehaviour
         text = GetComponentInChildren<TMP_Text>();
         textTransform = GetComponentInChildren<TextMeshPro>().GetComponentInParent<RectTransform>();
         rb = transform.GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.right * Random.Range(-5, 5) + transform.up * Random.Range(0, 3), ForceMode2D.Impulse); // initial randomized velocities
+        rb.AddForce(transform.right * Random.Range(3, 5) * (Random.Range(0,1) > 0.5 ? 1 : -1) + transform.up * Random.Range(1, 3), ForceMode2D.Impulse); // initial randomized velocities
         winLoseAnimator.gameObject.SetActive(false);
         PlayerVars.loser = null;
         // if you want to make these lines better without all the if statements be my guest
         if(gameObject.layer == 0){
+            Time.timeScale = 0;
             if (sword)
             {
                 Instantiate(swordPrefab, gameObject.transform);
@@ -277,5 +278,6 @@ public class CharacterScript : MonoBehaviour
             sprite.color = Color.white;
         }
     }
+
 
 }

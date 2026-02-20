@@ -23,9 +23,9 @@ public class DamageMultScript : MonoBehaviour
         }
         cs = GetComponent<CharacterScript>();
         cs.damagePanel.SetActive(true);
-        multAmount = cs.healAmount;
+        multAmount = cs.damageMult;
         damageTime = cs.damageTime;
-        cooldownTime = cs.healCooldown;
+        cooldownTime = cs.damageCooldown;
         damageButton = GameObject.FindWithTag("DamageButton").GetComponent<Button>();
         damageButton.onClick.AddListener(DamageMult);
         heading = damageButton.transform.parent.GetComponentInChildren<TMP_Text>();
