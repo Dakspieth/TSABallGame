@@ -663,7 +663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &345155076
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4158,8 +4158,8 @@ MonoBehaviour:
   boostLeftRightSpeed: 5
   boostLeftRightPanel: {fileID: 1590314731}
   healPowerup: 1
-  healCooldown: 5
-  healAmount: 1
+  healCooldown: 3
+  healAmount: 2
   healPanel: {fileID: 763267851}
   damagePowerup: 0
   damageTime: 1
