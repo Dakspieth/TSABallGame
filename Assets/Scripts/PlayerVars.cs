@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public static class PlayerVars
@@ -11,5 +12,7 @@ public static class PlayerVars
     public static bool boostUD = false;
     public static bool damageMult = false;
     public static bool heal = false;
+
+    public static string loser = null; 
     
 }

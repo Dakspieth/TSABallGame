@@ -9,6 +9,7 @@ public class CharacterScript : MonoBehaviour
     public float health;
     public float speed;
     public float textX;
+    public GameObject powerupPanel;
     float angle;
     [Header("Sword")]
     public bool sword; // spinning sword that does damage on hit
@@ -69,6 +70,7 @@ public class CharacterScript : MonoBehaviour
     float[] yPositions = {175, -175};
     int powerupNum = 0;
     TMP_Text text;
+    Transform textTransform;
     Camera cam;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -91,7 +93,7 @@ public class CharacterScript : MonoBehaviour
         GetComponentInChildren<TextMeshPro>(true).gameObject.SetActive(true);
         GetComponentInChildren<TextMeshPro>().GetComponentInChildren<SpriteRenderer>().sprite = GetComponentInChildren<SpriteRenderer>().sprite;
         text = GetComponentInChildren<TMP_Text>();
-
+        textTransform = GetComponentInChildren<TextMeshPro>().GetComponentInParent<RectTransform>();
         rb = transform.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.right * Random.Range(-5, 5) + transform.up * Random.Range(0, 3), ForceMode2D.Impulse); // initial randomized velocities
         
@@ -166,6 +168,8 @@ public class CharacterScript : MonoBehaviour
         transform.Find("sprite").eulerAngles += new Vector3(0, 0, angle);
         if(health <= 0)
         {
+            PlayerVars.loser = gameObject.tag;
+            powerupPanel.SetActive(false);
             Destroy(gameObject);
         }
         Vector2.ClampMagnitude(rb.linearVelocity, 0f);
@@ -174,7 +178,6 @@ public class CharacterScript : MonoBehaviour
     void FixedUpdate()
     {
         
-        print(rb.linearVelocity.magnitude + "   " + gameObject.name);
         /*if (rb.linearVelocity.magnitude < speed)
         {
             rb.linearVelocity *= speed;
@@ -184,8 +187,19 @@ public class CharacterScript : MonoBehaviour
             Vector2.ClampMagnitude(rb.linearVelocity, speed+10f);
         }*/
         
-        GetComponentInChildren<TextMeshPro>().GetComponentInParent<RectTransform>().position = new Vector3(textX, transform.position.y, 0);
+        textTransform.position = new Vector3(textX, transform.position.y, 0);
         text.text = health.ToString();
+        if(PlayerVars.loser != null)
+        {
+            if(PlayerVars.loser == "Enemy")
+            {
+                print("you win");
+            } else if(PlayerVars.loser == "Player")
+            {
+                print("You lose");
+            }   
+        }
+        
     }
 
     public void OnCollisionEnter2D(Collision2D col)
