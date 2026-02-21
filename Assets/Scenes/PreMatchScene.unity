@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 141311879}
   - component: {fileID: 141311878}
   - component: {fileID: 141311877}
+  - component: {fileID: 141311881}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -468,6 +469,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1623788530}
+        m_TargetAssemblyTypeName: PreMatchScript, Assembly-CSharp
+        m_MethodName: SwitchColorHover
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 141311877}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &141311878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,7 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.91764706, g: 0.9372549, b: 0.9372549, a: 1}
+  m_Color: {r: 0.91764706, g: 0.9372549, b: 0.9372549, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -526,6 +539,51 @@ RectTransform:
   m_AnchoredPosition: {x: 250, y: -375}
   m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &141311881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141311876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1623788530}
+          m_TargetAssemblyTypeName: PreMatchScript, Assembly-CSharp
+          m_MethodName: SwitchColorHover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 141311877}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1623788530}
+          m_TargetAssemblyTypeName: PreMatchScript, Assembly-CSharp
+          m_MethodName: SwitchColorHover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 141311877}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &181456772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,8 +1880,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282332197
-  m_fontColor: {r: 0.14509805, g: 0.20392157, b: 0.24705882, a: 1}
+    rgba: 4293914602
+  m_fontColor: {r: 0.91764706, g: 0.9372549, b: 0.9372549, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1944,6 +2002,7 @@ GameObject:
   - component: {fileID: 803327406}
   - component: {fileID: 803327405}
   - component: {fileID: 803327404}
+  - component: {fileID: 803327407}
   m_Layer: 5
   m_Name: NextButton
   m_TagString: Untagged
@@ -2040,7 +2099,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.91764706, g: 0.9372549, b: 0.9372549, a: 1}
+  m_Color: {r: 0.91764706, g: 0.9372549, b: 0.9372549, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2065,6 +2124,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803327402}
   m_CullTransparentMesh: 1
+--- !u!114 &803327407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803327402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1623788530}
+          m_TargetAssemblyTypeName: PreMatchScript, Assembly-CSharp
+          m_MethodName: SwitchColorHover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 803327404}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1623788530}
+          m_TargetAssemblyTypeName: PreMatchScript, Assembly-CSharp
+          m_MethodName: SwitchColorHover
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 803327404}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &822594542
 GameObject:
   m_ObjectHideFlags: 0
@@ -3026,8 +3130,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4282332197
-  m_fontColor: {r: 0.14509805, g: 0.20392157, b: 0.24705882, a: 1}
+    rgba: 4293914602
+  m_fontColor: {r: 0.91764706, g: 0.9372549, b: 0.9372549, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

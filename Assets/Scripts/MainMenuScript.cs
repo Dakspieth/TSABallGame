@@ -18,7 +18,6 @@ public class MainMenuScript : MonoBehaviour
     public void SwitchColor(Button button)
     {
         on = !on;
-        print("On: " + on);
         TMP_Text[] text = button.GetComponentsInChildren<TMP_Text>();
         if (on)
         {

@@ -18,7 +18,7 @@ public class PreMatchScript : MonoBehaviour
     String unarmedDesc = "> hits on collision\n> 1 damage on hit";
     
     public Button swordButton;
-    String swordDesc = "Spinning sword\n> 3 damage on hit";
+    String swordDesc = "Spinning sword\n> 2 damage on hit";
 
     public Button duplicateButton;
     String duplicateDesc = "creates duplicates on hit that have:\n> 1 hp\n> 1 damage on hit";
@@ -45,6 +45,7 @@ public class PreMatchScript : MonoBehaviour
     public TMP_Text description;
     String lastDesc = null;
     public Button nextButton, backButton;
+    bool on;
 
 
     //25343F
@@ -93,6 +94,27 @@ public class PreMatchScript : MonoBehaviour
             button.gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
             foreach (TMP_Text textObj in text){
                 textObj.color = textColor;                
+            }
+        }
+    }
+    public void SwitchColorHover(Button button)
+    {
+        on = !on;
+        TMP_Text[] text = button.GetComponentsInChildren<TMP_Text>();
+        if (on)
+        {
+            button.gameObject.GetComponent<Image>().color = textColor;
+            foreach (TMP_Text textObj in text)
+            {
+                textObj.color = bgColor;
+            }
+        }
+        else
+        {
+            button.gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+            foreach (TMP_Text textObj in text)
+            {
+                textObj.color = textColor;
             }
         }
     }
