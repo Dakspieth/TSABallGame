@@ -96,11 +96,11 @@ public class PreMatchScript : MonoBehaviour
             }
         }
     }
-    public void NextClick()
+    public void NextClick(int scene)
     {   
         if(heading.text == heading2)
         {
-            SceneManager.LoadSceneAsync(1);
+            SceneManager.LoadSceneAsync(scene);
         }
         abilities.SetActive(false);
         powerups.SetActive(true);

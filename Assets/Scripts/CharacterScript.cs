@@ -34,7 +34,6 @@ public class CharacterScript : MonoBehaviour
 
     [Header("Lifesteal")]
     public bool lifesteal;
-    public int lifestealHealth;
     [Range(0,1)]
     public float lifestealChance;
     public int lifestealAmount;
