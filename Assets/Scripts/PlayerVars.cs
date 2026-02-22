@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -17,5 +19,6 @@ public static class PlayerVars
     public static string loser = null; 
     public static string[] powerupList = {null, null};
     public static int numPowerups = 0;
-    
+    public static bool hitstopping = false;
+    public static List<GameObject> healthTextList = new List<GameObject>();
 }

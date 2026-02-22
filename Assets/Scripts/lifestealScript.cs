@@ -59,6 +59,7 @@ public class lifestealScript : MonoBehaviour
 
     public IEnumerator HealHitStop(GameObject hitGameobject)
     {
+        PlayerVars.hitstopping = true;
         Time.timeScale = 0;
         SpriteRenderer sprite = hitGameobject.GetComponentInChildren<SpriteRenderer>();
         SpriteRenderer ballSprite = ball.GetComponentInChildren<SpriteRenderer>();
@@ -94,5 +95,6 @@ public class lifestealScript : MonoBehaviour
             sprite.color = Color.white;
             ballSprite.color = Color.white;
         }
+        PlayerVars.hitstopping = false;
     }
 }

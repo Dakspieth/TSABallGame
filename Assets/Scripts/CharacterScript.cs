@@ -4,6 +4,7 @@ using UnityEngine.Rendering;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class CharacterScript : MonoBehaviour
 {
@@ -92,11 +93,11 @@ public class CharacterScript : MonoBehaviour
             damagePowerup = PlayerVars.damageMult;
             healPowerup = PlayerVars.heal;  
         }
-        
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         GetComponentInChildren<TextMeshPro>(true).gameObject.SetActive(true);
         GetComponentInChildren<TextMeshPro>().GetComponentInChildren<SpriteRenderer>().sprite = GetComponentInChildren<SpriteRenderer>().sprite;
         text = GetComponentInChildren<TMP_Text>();
+        PlayerVars.healthTextList.Add(text.gameObject);
         textTransform = GetComponentInChildren<TextMeshPro>().GetComponentInParent<RectTransform>();
         rb = transform.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.right * Random.Range(3, 5) * (Random.Range(0,1) > 0.5 ? 1 : -1) + transform.up * Random.Range(1, 3), ForceMode2D.Impulse); // initial randomized velocities
@@ -173,16 +174,16 @@ public class CharacterScript : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.Find("sprite").eulerAngles += new Vector3(0, 0, angle);
+        transform.GetComponentInChildren<SpriteRenderer>().gameObject.transform.eulerAngles += new Vector3(0, 0, Time.timeScale != 0 ? angle : 0);
         if(health <= 0)
         {
+            PlayerVars.healthTextList.Remove(text.gameObject);
             if(gameObject.layer == 0){
                 PlayerVars.loser = gameObject.tag;
                 powerupPanel.SetActive(false);
             }
             Destroy(gameObject);
         }
-        Vector2.ClampMagnitude(rb.linearVelocity, 0f);
 
     }
     void FixedUpdate()
@@ -247,6 +248,7 @@ public class CharacterScript : MonoBehaviour
 
     public IEnumerator HitStop(GameObject hitGameobject)
     {
+        PlayerVars.hitstopping = true;
         Time.timeScale = 0;
         SpriteRenderer sprite = hitGameobject.GetComponentInChildren<SpriteRenderer>();
         yield return new WaitForSecondsRealtime(0.01f);
@@ -276,6 +278,7 @@ public class CharacterScript : MonoBehaviour
         {
             sprite.color = Color.white;
         }
+        PlayerVars.hitstopping = false;
     }
 
 
