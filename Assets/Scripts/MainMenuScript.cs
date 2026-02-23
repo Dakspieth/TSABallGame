@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
-    public Button PlayBtn, HowToPlayBtn;
+    public Button PlayBtn, HowToPlayBtn, guideNextBtn;
+    public Image screenLayout;
     public Animator animator;
     bool howToPlay = false;
 
@@ -14,10 +15,12 @@ public class MainMenuScript : MonoBehaviour
     //EAEFEF
     Color textColor = new Color(0.917647059f, 0.937254902f, 0.937254902f);
     bool on = false;
+    bool guideNext = false;
 
     public void SwitchColor(Button button)
     {
         on = !on;
+
         TMP_Text[] text = button.GetComponentsInChildren<TMP_Text>();
         if (on)
         {
@@ -26,6 +29,7 @@ public class MainMenuScript : MonoBehaviour
             {
                 textObj.color = bgColor;
             }
+            
         }
         else
         {
@@ -35,12 +39,20 @@ public class MainMenuScript : MonoBehaviour
                 textObj.color = textColor;
             }
         }
+        
+        
     }
-
+    public void GuideNextClick()
+    {
+        guideNext = !guideNext;
+        screenLayout.gameObject.SetActive(guideNext);
+    }
     public void HowToPlayClick()
     {
         howToPlay = !howToPlay;
         on = !on;
+        screenLayout.gameObject.SetActive(false);
+        guideNext = false;
         if(howToPlay)
         {
             animator.SetTrigger("GuidePress");
