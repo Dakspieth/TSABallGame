@@ -29,7 +29,14 @@ public class MainMenuScript : MonoBehaviour
             {
                 textObj.color = bgColor;
             }
-            
+            if(button == guideNextBtn)
+            {
+                button.gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+                foreach (TMP_Text textObj in text)
+                {
+                    textObj.color = textColor;
+                }
+            }
         }
         else
         {
@@ -38,6 +45,14 @@ public class MainMenuScript : MonoBehaviour
             {
                 textObj.color = textColor;
             }
+            if(button == guideNextBtn)
+            {
+                button.gameObject.GetComponent<Image>().color = textColor;
+                foreach (TMP_Text textObj in text)
+                {
+                    textObj.color = bgColor;
+                }
+            }
         }
         
         
@@ -45,14 +60,18 @@ public class MainMenuScript : MonoBehaviour
     public void GuideNextClick()
     {
         guideNext = !guideNext;
-        screenLayout.gameObject.SetActive(guideNext);
+        if (guideNext)
+        {
+            animator.SetTrigger("GuideNextPress");
+        } else
+        {
+            animator.SetTrigger("GuideNextUnpress");
+        }
     }
     public void HowToPlayClick()
     {
         howToPlay = !howToPlay;
         on = !on;
-        screenLayout.gameObject.SetActive(false);
-        guideNext = false;
         if(howToPlay)
         {
             animator.SetTrigger("GuidePress");

@@ -252,7 +252,7 @@ public class CharacterScript : MonoBehaviour
         Time.timeScale = 0;
         SpriteRenderer sprite = hitGameobject.GetComponentInChildren<SpriteRenderer>();
         yield return new WaitForSecondsRealtime(0.01f);
-        cam.orthographicSize = 2.75f;
+        cam.orthographicSize = 2.9f;
         bool changeColor = false;
         if (hitGameobject != null && hitGameobject.GetComponent<CharacterScript>().health > 0)
         {
@@ -261,7 +261,7 @@ public class CharacterScript : MonoBehaviour
         }
         for(int i = 0; i < 10; i++)
         {
-            yield return new WaitForSecondsRealtime(0.15f/10);
+            yield return new WaitForSecondsRealtime(0.1f/10);
             Time.timeScale = Mathf.Lerp(Time.timeScale, 1, 0.02f);
             cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, 3, 0.02f);
             if (changeColor)
