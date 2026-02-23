@@ -45,6 +45,7 @@ public class PreMatchScript : MonoBehaviour
     public TMP_Text description;
     String lastDesc = null;
     public Button nextButton, backButton;
+    public GameObject opponentPanel;
     bool on;
 
 
@@ -327,5 +328,9 @@ public class PreMatchScript : MonoBehaviour
         SwitchColor(PlayerVars.sword, swordButton);
         SwitchColor(PlayerVars.duplicate, duplicateButton);
         SwitchColor(PlayerVars.lifesteal, lifestealButton);
+    }
+    public void OpponentClick()
+    {
+        Destroy(opponentPanel);
     }
 }
