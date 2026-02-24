@@ -143,6 +143,10 @@ public class PreMatchScript : MonoBehaviour
         nextButton.GetComponentInChildren<TMP_Text>().text = "Next";
         (lastDesc, description.text) = (description.text, lastDesc);
     }
+    public void MenuClick()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
 
     public void BoostUDClick()
     {

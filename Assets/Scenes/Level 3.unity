@@ -3860,7 +3860,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea6fa48f6e1afa47ac099a4f416e57a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterScript
-  health: 25
+  health: 50
+  nextLevel: 7
+  currentLvl: 3
   speed: 0
   textX: -4
   powerupPanel: {fileID: 1483683873}
@@ -3879,7 +3881,7 @@ MonoBehaviour:
   lifesteal: 1
   lifestealChance: 0.65
   lifestealAmount: 1
-  lifestealDamage: 1
+  lifestealDamage: 2
   lifestealSpeed: 540
   lifestealPrefab: {fileID: 1164867356698269860, guid: 1a8e41d0fdf69b341984482e1c196393, type: 3}
   boostUpDownPowerup: 0
@@ -5072,7 +5074,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -43834428, guid: 6c0ae589d5cd45746ac6cf26da36e3d5, type: 3}
+  m_Sprite: {fileID: 1400389120, guid: 6c0ae589d5cd45746ac6cf26da36e3d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5193,7 +5195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea6fa48f6e1afa47ac099a4f416e57a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterScript
-  health: 25
+  health: 50
+  nextLevel: 7
+  currentLvl: 3
   speed: 0
   textX: -3
   powerupPanel: {fileID: 1483683873}

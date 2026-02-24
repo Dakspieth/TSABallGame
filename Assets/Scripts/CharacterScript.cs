@@ -10,6 +10,8 @@ public class CharacterScript : MonoBehaviour
 {
     
     public float health;
+    public int nextLevel;
+    public int currentLvl;
     public float speed;
     public float textX;
     public GameObject powerupPanel;
@@ -91,12 +93,14 @@ public class CharacterScript : MonoBehaviour
             boostUpDownPowerup = PlayerVars.boostUD;
             boostLeftRightPowerup = PlayerVars.boostLR;
             damagePowerup = PlayerVars.damageMult;
-            healPowerup = PlayerVars.heal;  
+            healPowerup = PlayerVars.heal;
+            PlayerVars.healthTextList.Clear();  
         }
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         GetComponentInChildren<TextMeshPro>(true).gameObject.SetActive(true);
         GetComponentInChildren<TextMeshPro>().GetComponentInChildren<SpriteRenderer>().sprite = GetComponentInChildren<SpriteRenderer>().sprite;
         text = GetComponentInChildren<TMP_Text>();
+        text.gameObject.name = text.gameObject.name + System.DateTime.Now+System.DateTime.Now.Millisecond;
         PlayerVars.healthTextList.Add(text.gameObject);
         textTransform = GetComponentInChildren<TextMeshPro>().GetComponentInParent<RectTransform>();
         rb = transform.GetComponent<Rigidbody2D>();
@@ -234,11 +238,12 @@ public class CharacterScript : MonoBehaviour
     }
     void WinOnClick()
     {
-        SceneManager.LoadSceneAsync(0);
+        PlayerVars.maxLvl = PlayerVars.maxLvl < currentLvl ? currentLvl : PlayerVars.maxLvl;
+        SceneManager.LoadSceneAsync(nextLevel);
     }
     void LoseOnClick()
     {
-        SceneManager.LoadSceneAsync(1);        
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex-1);        
     }
 
     public void OnCollisionEnter2D(Collision2D col)

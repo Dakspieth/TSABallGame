@@ -25,6 +25,7 @@ public class MainMenuScript : MonoBehaviour
     bool guideNext = false;
     bool play = false;
     List<bool> levelBools = new List<bool> {false, false, false, false, false};
+    List<int> levelNums = new List<int> {1, 3, 4, 7, 9};
     public List<Button> levelBtns = new List<Button> {};
 
     void Start()
@@ -160,15 +161,19 @@ public class MainMenuScript : MonoBehaviour
         switch(level)
         {
             case 1:
-                SceneManager.LoadSceneAsync(2);
+                SceneManager.LoadSceneAsync(levelNums[0]);
                 break;
             case 2:
+                SceneManager.LoadSceneAsync(levelNums[1]);
                 break;
             case 3:
+                SceneManager.LoadSceneAsync(levelNums[2]);
                 break;
             case 4:
+                SceneManager.LoadSceneAsync(levelNums[3]);
                 break;
             case 5:
+                SceneManager.LoadSceneAsync(levelNums[4]);
                 break;
             default:
                 break;

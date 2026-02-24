@@ -3860,7 +3860,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea6fa48f6e1afa47ac099a4f416e57a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterScript
-  health: 20
+  health: 65
+  nextLevel: 3
+  currentLvl: 1
   speed: 0
   textX: -4
   powerupPanel: {fileID: 1483683873}
@@ -5193,7 +5195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea6fa48f6e1afa47ac099a4f416e57a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterScript
-  health: 25
+  health: 50
+  nextLevel: 3
+  currentLvl: 1
   speed: 0
   textX: -3
   powerupPanel: {fileID: 1483683873}
@@ -5210,7 +5214,7 @@ MonoBehaviour:
   duplicateSize: 0.5
   duplicateDamage: 1
   lifesteal: 0
-  lifestealChance: 0.65
+  lifestealChance: 0.4
   lifestealAmount: 1
   lifestealDamage: 1
   lifestealSpeed: 540
