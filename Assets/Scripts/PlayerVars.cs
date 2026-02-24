@@ -21,4 +21,5 @@ public static class PlayerVars
     public static int numPowerups = 0;
     public static bool hitstopping = false;
     public static List<GameObject> healthTextList = new List<GameObject>();
+    public static int maxLvl = 1;
 }

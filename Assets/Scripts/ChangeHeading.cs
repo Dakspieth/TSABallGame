@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ChangeHeading : MonoBehaviour
 {
+    public MainMenuScript mms;
     public TMP_Text heading;
     public void GuideStartChangeText()
     {
@@ -15,5 +16,17 @@ public class ChangeHeading : MonoBehaviour
     public void MenuChangeText()
     {
         heading.text = "Game Name";
+    }
+    public void LevelsChangeText()
+    {
+        heading.text = "Levels";
+    }
+    public void TurnOff()
+    {
+        mms.on = false;
+    }
+    public void TurnOn()
+    {
+        mms.on=true;
     }
 }
