@@ -3860,23 +3860,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea6fa48f6e1afa47ac099a4f416e57a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterScript
-  health: 20
+  health: 25
   speed: 0
   textX: -4
   powerupPanel: {fileID: 1483683873}
   winLoseAnimator: {fileID: 345155077}
   sword: 0
-  swordDamage: 2
+  swordDamage: 3
   swordSpeed: 360
   swordPrefab: {fileID: 4478231092573160232, guid: 93750e65a9e1ec34db093be7167a92cd, type: 3}
-  unarmed: 1
+  unarmed: 0
   unarmedDamage: 1
   unarmedSpeedOnHit: 0
   duplicator: 0
   duplicateHealth: 1
   duplicateSize: 0.5
   duplicateDamage: 1
-  lifesteal: 0
+  lifesteal: 1
   lifestealChance: 0.65
   lifestealAmount: 1
   lifestealDamage: 1

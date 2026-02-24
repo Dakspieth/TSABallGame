@@ -2218,7 +2218,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3839,7 +3839,7 @@ MonoBehaviour:
   videoPlayer: {fileID: 1436249516}
   clips:
   - {fileID: 32900000, guid: 2cfb358732b2d40438bf0d21be920862, type: 3}
-  videoTexture: {fileID: 0}
+  opponentBtn: {fileID: 1851305608}
 --- !u!1 &1629227972
 GameObject:
   m_ObjectHideFlags: 0
@@ -4242,7 +4242,7 @@ GameObject:
   - component: {fileID: 1851305609}
   - component: {fileID: 1851305608}
   m_Layer: 5
-  m_Name: Button
+  m_Name: opponentBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
