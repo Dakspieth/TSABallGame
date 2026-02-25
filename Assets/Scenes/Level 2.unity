@@ -3869,7 +3869,7 @@ MonoBehaviour:
   powerupPanel: {fileID: 1483683873}
   winLoseAnimator: {fileID: 345155077}
   videoObj: {fileID: 1512900232}
-  sword: 1
+  sword: 0
   swordDamage: 3
   swordSpeed: 360
   swordPrefab: {fileID: 4478231092573160232, guid: 93750e65a9e1ec34db093be7167a92cd, type: 3}
@@ -3880,8 +3880,8 @@ MonoBehaviour:
   duplicateHealth: 1
   duplicateSize: 0.5
   duplicateDamage: 1
-  lifesteal: 0
-  lifestealChance: 0.65
+  lifesteal: 1
+  lifestealChance: 0.5
   lifestealAmount: 1
   lifestealDamage: 1
   lifestealSpeed: 540

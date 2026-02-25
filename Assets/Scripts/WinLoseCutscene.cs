@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
@@ -35,7 +34,7 @@ public class WinLoseCutscene : MonoBehaviour
             //print(vidImage.color.a);
             yield return null;
         }
-        vidImage.color = new Color(1, 1, 1, 1);
+        vidImage.color = new Color(1, 1, 1, end);
         if (endAfter)
         {
             endPlayback();
