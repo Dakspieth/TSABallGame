@@ -5209,11 +5209,11 @@ MonoBehaviour:
   unarmed: 0
   unarmedDamage: 1
   unarmedSpeedOnHit: 0
-  duplicator: 1
+  duplicator: 0
   duplicateHealth: 1
   duplicateSize: 0.5
   duplicateDamage: 1
-  lifesteal: 0
+  lifesteal: 1
   lifestealChance: 0.65
   lifestealAmount: 1
   lifestealDamage: 1

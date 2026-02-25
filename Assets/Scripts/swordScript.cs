@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class swordScript : MonoBehaviour
 {
@@ -18,6 +20,7 @@ public class swordScript : MonoBehaviour
         gameObject.tag = ball.tag;
         damage = ball.GetComponent<CharacterScript>().swordDamage;
         rotSpeed = ball.GetComponent<CharacterScript>().swordSpeed;
+        parent.transform.localEulerAngles = new Vector3(parent.transform.localRotation.x, parent.transform.localRotation.y, Random.Range(0,355));
     }
 
     // Update is called once per frame

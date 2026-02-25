@@ -43,7 +43,7 @@ public class duplicateScript : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag != gameObject.tag && col.gameObject.tag != "Border")
+        if (col.gameObject.tag != gameObject.tag && col.gameObject.tag != "Border" && col.gameObject.layer != 3)
         {
             if (gameObject.layer == 0)
             {

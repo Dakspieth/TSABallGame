@@ -2145,7 +2145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Spinning sword\n > 3 damage on\n   hit\n > 20% more hp
+  m_text: spinning sword\n - 1 damage on\n   hit\n - chance to\n   heal 1 hp
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0f02514361e253d4898d2b66b6178c32, type: 2}
   m_sharedMaterial: {fileID: 8168134765077282945, guid: 0f02514361e253d4898d2b66b6178c32, type: 2}
@@ -2634,7 +2634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 620ec8bf061adc74b91bf4292ca95a64, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a0748d9f63e9f92429c657aff898a054, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

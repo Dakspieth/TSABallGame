@@ -25,7 +25,7 @@ public class MainMenuScript : MonoBehaviour
     bool guideNext = false;
     bool play = false;
     List<bool> levelBools = new List<bool> {false, false, false, false, false};
-    List<int> levelNums = new List<int> {1, 3, 4, 7, 9};
+    List<int> levelNums = new List<int> {1, 3, 5, 7, 9};
     public List<Button> levelBtns = new List<Button> {};
 
     void Start()
