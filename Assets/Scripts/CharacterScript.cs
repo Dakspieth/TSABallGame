@@ -16,6 +16,7 @@ public class CharacterScript : MonoBehaviour
     public float textX;
     public GameObject powerupPanel;
     public Animator winLoseAnimator;
+    public GameObject videoObj;
     
     float angle;
     [Header("Sword")]
@@ -79,6 +80,7 @@ public class CharacterScript : MonoBehaviour
     Transform textTransform;
     Camera cam;
     bool winLoseBound = false;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -228,10 +230,12 @@ public class CharacterScript : MonoBehaviour
             case true:
                 winLoseAnimator.gameObject.GetComponentInChildren<TMP_Text>().text = "You win!";
                 button.onClick.AddListener(WinOnClick);
+                videoObj.SetActive(true);
                 break;
             case false:
                 winLoseAnimator.gameObject.GetComponentInChildren<TMP_Text>().text = "You lose";
                 button.onClick.AddListener(LoseOnClick);
+                videoObj.SetActive(true);
                 break;
             
         }
