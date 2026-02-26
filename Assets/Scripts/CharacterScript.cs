@@ -74,6 +74,8 @@ public class CharacterScript : MonoBehaviour
 
     [HideInInspector]
     public Rigidbody2D rb;
+    [HideInInspector]
+    public AudioSource audioSource;
     float[] yPositions = {175, -175};
     int powerupNum = 0;
     TMP_Text text;
@@ -98,6 +100,7 @@ public class CharacterScript : MonoBehaviour
             healPowerup = PlayerVars.heal;
             PlayerVars.healthTextList.Clear();  
         }
+        audioSource = GetComponent<AudioSource>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         GetComponentInChildren<TextMeshPro>(true).gameObject.SetActive(true);
         GetComponentInChildren<TextMeshPro>().GetComponentInChildren<SpriteRenderer>().sprite = GetComponentInChildren<SpriteRenderer>().sprite;
@@ -188,6 +191,7 @@ public class CharacterScript : MonoBehaviour
                 PlayerVars.loser = gameObject.tag;
                 powerupPanel.SetActive(false);
             }
+
             Destroy(gameObject);
         }
 
@@ -257,6 +261,8 @@ public class CharacterScript : MonoBehaviour
 
     public IEnumerator HitStop(GameObject hitGameobject)
     {
+        audioSource.pitch = Random.Range(0.8f, 1.2f);
+        audioSource.Play();
         PlayerVars.hitstopping = true;
         Time.timeScale = 0;
         SpriteRenderer sprite = hitGameobject.GetComponentInChildren<SpriteRenderer>();

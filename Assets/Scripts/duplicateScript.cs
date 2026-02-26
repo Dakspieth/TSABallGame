@@ -13,7 +13,6 @@ public class duplicateScript : MonoBehaviour
     GameObject ballPrefab;
     float size;
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -45,6 +44,7 @@ public class duplicateScript : MonoBehaviour
     {
         if (col.gameObject.tag != gameObject.tag && col.gameObject.tag != "Border" && col.gameObject.layer != 3)
         {
+            
             if (gameObject.layer == 0)
             {
                 //RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.up * Random.Range(-1, 1) + transform.right * Random.Range(-1, 1), 50);
@@ -62,7 +62,7 @@ public class duplicateScript : MonoBehaviour
             {
                 StartCoroutine(cs.HitStop(col.gameObject));
                 col.gameObject.GetComponent<CharacterScript>().health -= damage;
-                col.gameObject.GetComponentInChildren<TextMeshPro>().text = "" + col.gameObject.GetComponent<CharacterScript>().health;
+                col.gameObject.GetComponentInChildren<TextMeshPro>().text = "" + col.gameObject.GetComponent<CharacterScript>().health;                    
             }
         }
     }

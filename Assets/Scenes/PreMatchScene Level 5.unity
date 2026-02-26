@@ -2156,8 +2156,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: creates duplicates\n > 1hp\n > 1 damage on hit\nspinning sword\n - 0 damage
-    on hit\n - chance to heal\n   1 hp
+  m_text: creates duplicates\n > 1 hp\n > 1 damage on hit\nspinning sword\n > 0 damage
+    on hit\n > chance to heal\n   1 hp
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0f02514361e253d4898d2b66b6178c32, type: 2}
   m_sharedMaterial: {fileID: 8168134765077282945, guid: 0f02514361e253d4898d2b66b6178c32, type: 2}

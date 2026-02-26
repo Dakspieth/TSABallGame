@@ -2122,7 +2122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: -55}
+  m_AnchoredPosition: {x: 350, y: 0}
   m_SizeDelta: {x: 1000, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &686118539
@@ -2145,7 +2145,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: spinning sword\n - 1 damage on\n   hit\n - chance to\n   heal 1 hp
+  m_text: spinning sword\n > 1 damage on\n   hit\n > chance to\n   heal 1 hp\n >
+    10% reduced\n   HP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0f02514361e253d4898d2b66b6178c32, type: 2}
   m_sharedMaterial: {fileID: 8168134765077282945, guid: 0f02514361e253d4898d2b66b6178c32, type: 2}
