@@ -33,6 +33,7 @@ public class BoostUpDownScript : MonoBehaviour
         buttonDown.onClick.AddListener(DownBoost);
         heading = buttonDown.transform.parent.GetComponentInChildren<TMP_Text>();
         baseText = heading.text;
+
     }
 
     public void Update()
@@ -49,6 +50,7 @@ public class BoostUpDownScript : MonoBehaviour
 
     public void UpBoost()
     {
+        cs.audioSources[2].Play();
         //rb.AddForce(new Vector2(0, rb.linearVelocityY) + Vector2.up * speed, ForceMode2D.Impulse);
         rb.linearVelocity = new Vector2(rb.linearVelocityX, Mathf.Abs(rb.linearVelocityY) + speed);
         StartCoroutine(Cooldown());
@@ -56,6 +58,7 @@ public class BoostUpDownScript : MonoBehaviour
 
     public void DownBoost()
     {
+        cs.audioSources[2].Play();
         //rb.AddForce(new Vector2(0, -rb.linearVelocityY) + Vector2.up * -speed, ForceMode2D.Impulse);
         rb.linearVelocity = new Vector2(rb.linearVelocityX, -Mathf.Abs(rb.linearVelocityY) - speed);
         StartCoroutine(Cooldown());

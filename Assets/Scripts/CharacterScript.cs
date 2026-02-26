@@ -17,6 +17,8 @@ public class CharacterScript : MonoBehaviour
     public GameObject powerupPanel;
     public Animator winLoseAnimator;
     public GameObject videoObj;
+    public AudioSource[] audioSources;
+    //public AudioClip[] audioClips; // 0 = hurt, 1 = hit wall
     
     float angle;
     [Header("Sword")]
@@ -75,7 +77,6 @@ public class CharacterScript : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rb;
     [HideInInspector]
-    public AudioSource audioSource;
     float[] yPositions = {175, -175};
     int powerupNum = 0;
     TMP_Text text;
@@ -100,7 +101,6 @@ public class CharacterScript : MonoBehaviour
             healPowerup = PlayerVars.heal;
             PlayerVars.healthTextList.Clear();  
         }
-        audioSource = GetComponent<AudioSource>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         GetComponentInChildren<TextMeshPro>(true).gameObject.SetActive(true);
         GetComponentInChildren<TextMeshPro>().GetComponentInChildren<SpriteRenderer>().sprite = GetComponentInChildren<SpriteRenderer>().sprite;
@@ -227,12 +227,17 @@ public class CharacterScript : MonoBehaviour
 
     void WinLose(bool win)
     {
+        if(gameObject.layer == 0){
         winLoseAnimator.gameObject.SetActive(true);
         Button button = winLoseAnimator.GetComponentInChildren<Button>(true);
         switch (win)
         {
             case true:
                 winLoseAnimator.gameObject.GetComponentInChildren<TMP_Text>().text = "You win!";
+                if(SceneManager.GetActiveScene().buildIndex == 10)
+                {
+                    winLoseAnimator.transform.Find("Victory").transform.Find("move on").GetComponent<TMP_Text>().text = "(click to open Main Menu)";
+                }
                 button.onClick.AddListener(WinOnClick);
                 videoObj.SetActive(true);
                 break;
@@ -242,6 +247,7 @@ public class CharacterScript : MonoBehaviour
                 videoObj.SetActive(true);
                 break;
             
+        }
         }
     }
     void WinOnClick()
@@ -257,12 +263,17 @@ public class CharacterScript : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D col)
     {
         angle = rb.linearVelocity.x/-7.5f;
+        if(col.gameObject.tag == "Border" && PlayerVars.loser == null)// && gameObject.layer == 0)
+        {
+            audioSources[1].pitch = Random.Range(0.9f, 1.1f);
+            audioSources[1].Play();
+        }
     }
 
     public IEnumerator HitStop(GameObject hitGameobject)
     {
-        audioSource.pitch = Random.Range(0.8f, 1.2f);
-        audioSource.Play();
+        audioSources[0].pitch = Random.Range(0.8f, 1.2f);
+        audioSources[0].Play();
         PlayerVars.hitstopping = true;
         Time.timeScale = 0;
         SpriteRenderer sprite = hitGameobject.GetComponentInChildren<SpriteRenderer>();

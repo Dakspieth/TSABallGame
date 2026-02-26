@@ -16,8 +16,10 @@ public class PauseScript : MonoBehaviour
     Color bgColor = new Color(0.145098039f, 0.203921569f, 0.247058824f);
     //EAEFEF
     Color textColor = new Color(0.917647059f, 0.937254902f, 0.937254902f);
+    public AudioSource audioSource;
     public void PauseClick()
     {
+        audioSource.Play();
         StartCoroutine(waitForHitstop());
     }
     IEnumerator waitForHitstop()
@@ -43,6 +45,7 @@ public class PauseScript : MonoBehaviour
         TMP_Text[] text = button.GetComponentsInChildren<TMP_Text>();
         if (hover)
         {
+            if(!on){audioSource.Play();}
             button.gameObject.GetComponent<Image>().color = textColor;
             foreach (TMP_Text textObj in text)
             {
@@ -51,6 +54,7 @@ public class PauseScript : MonoBehaviour
         }
         else
         {
+            if(on){audioSource.Play();}
             button.gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
             foreach (TMP_Text textObj in text)
             {

@@ -42,6 +42,7 @@ public class HealScript : MonoBehaviour
 
     public void Heal()
     {
+        cs.audioSources[2].Play();
         cs.health += healAmount;
         StartCoroutine(Cooldown());
     }

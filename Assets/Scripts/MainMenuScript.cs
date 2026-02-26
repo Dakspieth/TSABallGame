@@ -12,7 +12,6 @@ using Unity.Hierarchy;
 public class MainMenuScript : MonoBehaviour
 {
     public Button PlayBtn, HowToPlayBtn, guideNextBtn;
-    public Image screenLayout;
     public Animator animator;
     bool howToPlay = false;
 
@@ -27,6 +26,7 @@ public class MainMenuScript : MonoBehaviour
     List<bool> levelBools = new List<bool> {false, false, false, false, false};
     List<int> levelNums = new List<int> {1, 3, 5, 7, 9};
     public List<Button> levelBtns = new List<Button> {};
+    public AudioSource audioSource;
 
     void Start()
     {
@@ -56,6 +56,7 @@ public class MainMenuScript : MonoBehaviour
         TMP_Text[] text = button.GetComponentsInChildren<TMP_Text>();
         if (on)
         {
+
             button.gameObject.GetComponent<Image>().color = new Color(0, 0, 0, 0);
             foreach (TMP_Text textObj in text)
             {
@@ -180,6 +181,5 @@ public class MainMenuScript : MonoBehaviour
             
         }
     }
-
     
 }

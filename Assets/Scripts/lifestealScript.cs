@@ -59,8 +59,8 @@ public class lifestealScript : MonoBehaviour
 
     public IEnumerator HealHitStop(GameObject hitGameobject)
     {
-        cs.audioSource.pitch = Random.Range(0.8f, 1.2f);
-        cs.audioSource.Play();
+        cs.audioSources[0].pitch = Random.Range(0.8f, 1.2f);
+        cs.audioSources[0].Play();
         PlayerVars.hitstopping = true;
         Time.timeScale = 0;
         SpriteRenderer sprite = hitGameobject.GetComponentInChildren<SpriteRenderer>();

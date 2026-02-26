@@ -46,6 +46,7 @@ public class DamageMultScript : MonoBehaviour
 
     public void DamageMult()
     {
+        cs.audioSources[2].Play();
         if (cs.sword)
         {
             GetComponentInChildren<swordScript>().damage*=2;

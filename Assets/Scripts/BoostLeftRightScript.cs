@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.UI;
 
 public class BoostLeftRightScript : MonoBehaviour
@@ -15,7 +16,6 @@ public class BoostLeftRightScript : MonoBehaviour
     Button buttonLeft, buttonRight;
     TMP_Text heading;
     string baseText;
-
     void Start()
     {
         if(gameObject.layer != 0)
@@ -33,6 +33,7 @@ public class BoostLeftRightScript : MonoBehaviour
         buttonRight.onClick.AddListener(RightBoost);
         heading = buttonLeft.transform.parent.GetComponentInChildren<TMP_Text>();
         baseText = heading.text;
+
     }
 
     public void Update()
@@ -48,7 +49,8 @@ public class BoostLeftRightScript : MonoBehaviour
     }
 
     public void LeftBoost()
-    {
+    {   
+        cs.audioSources[2].Play();
         //rb.AddForce(Vector2.right * -speed, ForceMode2D.Impulse);
         rb.linearVelocity = new Vector2(-Mathf.Abs(rb.linearVelocityX) - speed, rb.linearVelocityY);                
 
@@ -57,6 +59,7 @@ public class BoostLeftRightScript : MonoBehaviour
 
     public void RightBoost()
     {
+        cs.audioSources[2].Play();
         //rb.AddForce(Vector2.right * speed, ForceMode2D.Impulse);
         rb.linearVelocity = new Vector2(Mathf.Abs(rb.linearVelocityX) + speed, rb.linearVelocityY);        
         
