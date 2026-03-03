@@ -101,6 +101,7 @@ public class CharacterScript : MonoBehaviour
             healPowerup = PlayerVars.heal;
             PlayerVars.healthTextList.Clear();  
         }
+        //PlayerVars.maxLvl = PlayerVars.maxLvl < currentLvl ? currentLvl : PlayerVars.maxLvl;
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         GetComponentInChildren<TextMeshPro>(true).gameObject.SetActive(true);
         GetComponentInChildren<TextMeshPro>().GetComponentInChildren<SpriteRenderer>().sprite = GetComponentInChildren<SpriteRenderer>().sprite;
@@ -252,7 +253,6 @@ public class CharacterScript : MonoBehaviour
     }
     void WinOnClick()
     {
-        PlayerVars.maxLvl = PlayerVars.maxLvl < currentLvl ? currentLvl : PlayerVars.maxLvl;
         SceneManager.LoadSceneAsync(nextLevel);
     }
     void LoseOnClick()

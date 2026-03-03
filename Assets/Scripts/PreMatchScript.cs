@@ -48,7 +48,6 @@ public class PreMatchScript : MonoBehaviour
     public GameObject opponentPanel;
     bool on;
 
-
     //25343F
     Color bgColor = new Color(0.145098039f, 0.203921569f, 0.247058824f);
     //EAEFEF
@@ -58,6 +57,8 @@ public class PreMatchScript : MonoBehaviour
         PlayerVars.fromPreMatch = true;
         abilities.SetActive(true);
         powerups.SetActive(false);
+        int currentLvl = (SceneManager.GetActiveScene().buildIndex + 1) / 2;
+        PlayerVars.maxLvl = PlayerVars.maxLvl < currentLvl ? currentLvl : PlayerVars.maxLvl;
 
         unarmedButton.interactable = true;
         swordButton.interactable = true;
