@@ -13,6 +13,7 @@ TagManager:
   - DamageButton
   - UpBoost
   - DownBoost
+  - Music
   layers:
   - Default
   - TransparentFX

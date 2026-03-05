@@ -3524,7 +3524,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436249515}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: fc3722d0d41fc0d4f94d648a0a854fb9, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: cedbbb54b9724624a96924e1ea901237, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 535280648}
@@ -4256,7 +4256,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   videoPlayer: {fileID: 1436249516}
   clips:
-  - {fileID: 32900000, guid: fc3722d0d41fc0d4f94d648a0a854fb9, type: 3}
+  - {fileID: 32900000, guid: cedbbb54b9724624a96924e1ea901237, type: 3}
   - {fileID: 32900000, guid: 69af71555b2bae4418286e2ae9c77923, type: 3}
   vidImage: {fileID: 1747086290}
   opponentBtn: {fileID: 1851305608}

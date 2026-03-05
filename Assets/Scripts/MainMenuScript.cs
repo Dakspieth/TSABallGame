@@ -27,9 +27,11 @@ public class MainMenuScript : MonoBehaviour
     List<int> levelNums = new List<int> {1, 3, 5, 7, 9};
     public List<Button> levelBtns = new List<Button> {};
     public AudioSource audioSource;
+    public GameObject musicPlayer;
 
     void Start()
     {
+        DontDestroyOnLoad(musicPlayer);
         for(int i = 4; i>PlayerVars.maxLvl-1; i--)
         {
             Destroy(levelBtns[i].gameObject);
