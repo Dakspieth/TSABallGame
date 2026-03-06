@@ -22,4 +22,5 @@ public static class PlayerVars
     public static bool hitstopping = false;
     public static List<GameObject> healthTextList = new List<GameObject>();
     public static int maxLvl = 1;
+    public static bool onFirstLoad = true;
 }

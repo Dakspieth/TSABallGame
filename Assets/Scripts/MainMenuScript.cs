@@ -31,7 +31,14 @@ public class MainMenuScript : MonoBehaviour
 
     void Start()
     {
+        if(PlayerVars.onFirstLoad)
+        {
         DontDestroyOnLoad(musicPlayer);
+        PlayerVars.onFirstLoad = false;
+        } else
+        {
+            Destroy(musicPlayer);
+        }
         for(int i = 4; i>PlayerVars.maxLvl-1; i--)
         {
             Destroy(levelBtns[i].gameObject);
