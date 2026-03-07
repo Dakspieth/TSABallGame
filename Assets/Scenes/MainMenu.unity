@@ -2267,7 +2267,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Before each match, choose your ability and up to 2 powerups. You can trigger
-    these powerups during matches by clicking on them.
+    these powerups during matches by clicking on them. Your ball will bounce around,
+    trying to damage the other ball using the powerups and abilities you chose.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0f02514361e253d4898d2b66b6178c32, type: 2}
   m_sharedMaterial: {fileID: 8168134765077282945, guid: 0f02514361e253d4898d2b66b6178c32, type: 2}
@@ -2294,8 +2295,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
-  m_fontSizeBase: 65
+  m_fontSize: 58.7
+  m_fontSizeBase: 58.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4761,7 +4762,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1dd8a05381adb7f49b143b127766fd69, type: 3}
+  m_Sprite: {fileID: -2736166876794724520, guid: 515c2d59aa32d9e4daf9f1668be2faba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
