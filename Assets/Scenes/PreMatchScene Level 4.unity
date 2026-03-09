@@ -3873,7 +3873,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
@@ -4326,7 +4326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   videoPlayer: {fileID: 1436249516}
   clips:
-  - {fileID: 32900000, guid: ec2ee3a258114884aa46587da5d476d5, type: 3}
+  - Fight4.mp4
   vidImage: {fileID: 590445940}
   opponentBtn: {fileID: 1851305608}
   cutsceneSkip: {fileID: 0}

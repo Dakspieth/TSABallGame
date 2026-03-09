@@ -7,7 +7,7 @@ public class WinLoseCutscene : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
     public RawImage vidImage;
-    public VideoClip[] clips;
+    public string[] clips;
     public Button moveOnBtn;
     float t = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,7 +16,7 @@ public class WinLoseCutscene : MonoBehaviour
         //moveOnBtn.interactable = false;
         moveOnBtn.transform.parent.gameObject.SetActive(false);
         videoPlayer.loopPointReached += transitionOut;            
-        videoPlayer.clip = PlayerVars.loser == "Player" ? clips[0] : clips[1]; // clips 0 means player lost
+        videoPlayer.url = PlayerVars.loser == "Player" ? System.IO.Path.Combine(Application.streamingAssetsPath,clips[0]) : System.IO.Path.Combine(Application.streamingAssetsPath,clips[1]); // clips 0 means player lost
         vidImage.gameObject.SetActive(true);
         StartCoroutine(lerpAlpha(0, 1, false));
         videoPlayer.Play();

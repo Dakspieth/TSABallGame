@@ -2068,7 +2068,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
@@ -2114,8 +2114,8 @@ MonoBehaviour:
   videoPlayer: {fileID: 663012182}
   vidImage: {fileID: 63605918}
   clips:
-  - {fileID: 32900000, guid: 792f6ef234560184680848b565b1f9a9, type: 3}
-  - {fileID: 32900000, guid: f9afb301e1b28914683bc9218308bae1, type: 3}
+  - TSADeathBlue1P1.mp4
+  - TSAWin1.mp4
   moveOnBtn: {fileID: 1063433881}
 --- !u!1 &688804807
 GameObject:

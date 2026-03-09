@@ -3534,7 +3534,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
@@ -4256,8 +4256,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   videoPlayer: {fileID: 1436249516}
   clips:
-  - {fileID: 32900000, guid: cedbbb54b9724624a96924e1ea901237, type: 3}
-  - {fileID: 32900000, guid: 69af71555b2bae4418286e2ae9c77923, type: 3}
+  - OneYearAgo.mp4
+  - Fight1.mp4
   vidImage: {fileID: 1747086290}
   opponentBtn: {fileID: 1851305608}
   cutsceneSkip: {fileID: 2025315601}

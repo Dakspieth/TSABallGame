@@ -1287,8 +1287,8 @@ MonoBehaviour:
   videoPlayer: {fileID: 456419231}
   vidImage: {fileID: 873857744}
   clips:
-  - {fileID: 32900000, guid: 792f6ef234560184680848b565b1f9a9, type: 3}
-  - {fileID: 32900000, guid: 2cc4c024a574a994fab4e1dec2375108, type: 3}
+  - TSADeathBlue1P1.mp4
+  - TSAWin3.mp4
   moveOnBtn: {fileID: 1063433881}
 --- !u!328 &456419231
 VideoPlayer:
@@ -1308,7 +1308,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2

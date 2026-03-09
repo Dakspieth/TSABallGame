@@ -7,7 +7,7 @@ using UnityEngine.Video;
 public class PlayCutscenes : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
-    public VideoClip[] clips;
+    public string[] clips;
     public RawImage vidImage;
     public Button opponentBtn;
     public Button cutsceneSkip;
@@ -25,7 +25,7 @@ public class PlayCutscenes : MonoBehaviour
         {            
         videoPlayer.loopPointReached += transitionOut;
         }
-        videoPlayer.clip = clips[0];
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, clips[0]);
         videoPlayer.Play();
     }
     IEnumerator lerpAlpha(float start, float end, bool endAfter)
@@ -46,7 +46,7 @@ public class PlayCutscenes : MonoBehaviour
     }
     void playNextClip(VideoPlayer vp)
     {
-        videoPlayer.clip = clips[1];
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, clips[1]);
         videoPlayer.loopPointReached -= playNextClip;
         videoPlayer.loopPointReached += transitionOut;
         if(!buttonDestroyed)
