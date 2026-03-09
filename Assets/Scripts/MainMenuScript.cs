@@ -34,12 +34,13 @@ public class MainMenuScript : MonoBehaviour
         if(PlayerVars.onFirstLoad)
         {
         DontDestroyOnLoad(musicPlayer);
+        PlayerPrefs.SetInt("maxLvl",PlayerPrefs.GetInt("maxLvl") < 1 ? 1 : PlayerPrefs.GetInt("maxLvl"));
         PlayerVars.onFirstLoad = false;
         } else
         {
             Destroy(musicPlayer);
         }
-        for(int i = 4; i>PlayerVars.maxLvl-1; i--)
+        for(int i = 4; i>PlayerPrefs.GetInt("maxLvl")-1; i--)
         {
             Destroy(levelBtns[i].gameObject);
             levelBtns.RemoveAt(i);

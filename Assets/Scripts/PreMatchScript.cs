@@ -54,7 +54,7 @@ public class PreMatchScript : MonoBehaviour
         abilities.SetActive(true);
         powerups.SetActive(false);
         int currentLvl = (SceneManager.GetActiveScene().buildIndex + 1) / 2;
-        PlayerVars.maxLvl = PlayerVars.maxLvl < currentLvl ? currentLvl : PlayerVars.maxLvl;
+        PlayerPrefs.SetInt("maxLvl",PlayerPrefs.GetInt("maxLvl") < currentLvl ? currentLvl : PlayerPrefs.GetInt("maxLvl"));
 
         unarmedButton.interactable = true;
         swordButton.interactable = true;
