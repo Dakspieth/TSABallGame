@@ -15,7 +15,7 @@ public class ChangeHeading : MonoBehaviour
     }
     public void MenuChangeText()
     {
-        heading.text = "Game Name";
+        heading.text = "Bounce Master";
     }
     public void LevelsChangeText()
     {
